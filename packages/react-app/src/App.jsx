@@ -23,7 +23,7 @@ import { formatEther, parseEther } from "@ethersproject/units";
 //import Hints from "./Hints";
 import { Hints, ExampleUI, Subgraph } from "./views";
 import { useThemeSwitcher } from "react-css-theme-switcher";
-import { INFURA_ID, DAI_ADDRESS, DAI_ABI, NETWORK, NETWORKS } from "./constants";
+import { INFURA_ID, DAI_ADDRESS, DAI_ABI, NETWORK, NETWORKS, APP_NAME } from "./constants";
 /*
     Welcome to 🏗 scaffold-eth !
 
@@ -65,6 +65,8 @@ const localProviderUrl = targetNetwork.rpcUrl;
 const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
 if (DEBUG) console.log("🏠 Connecting to provider:", localProviderUrlFromEnv);
 const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
+
+const hideFooter = true;
 
 // 🔭 block explorer URL
 const blockExplorer = targetNetwork.blockExplorer;
@@ -217,8 +219,10 @@ function App(props) {
       </div>
     );
   } else {
+    const right = 0; // 154;
+    const top = 36; // 28;
     networkDisplay = (
-      <div style={{ zIndex: -1, position: "absolute", right: 154, top: 28, padding: 16, color: targetNetwork.color }}>
+      <div style={{ zIndex: -1, position: "absolute", right, top, padding: 16, color: targetNetwork.color }}>
         {targetNetwork.name}
       </div>
     );
@@ -284,7 +288,7 @@ function App(props) {
               }}
               to="/"
             >
-              YourContract
+              {APP_NAME}
             </Link>
           </Menu.Item>
           <Menu.Item key="/hints">
@@ -338,7 +342,7 @@ function App(props) {
             */}
 
             <Contract
-              name="YourContract"
+              name={"YourContract"}
               signer={userProvider.getSigner()}
               provider={localProvider}
               address={address}
@@ -429,7 +433,16 @@ function App(props) {
       </div>
 
       {/* 🗺 Extra UI like gas price, eth price, faucet, and support: */}
-      <div style={{ position: "fixed", textAlign: "left", left: 0, bottom: 20, padding: 10 }}>
+      <div
+        style={{
+          position: "fixed",
+          textAlign: "left",
+          left: 0,
+          bottom: 20,
+          padding: 10,
+          display: hideFooter ? "none" : "auto",
+        }}
+      >
         <Row align="middle" gutter={[4, 4]}>
           <Col span={8}>
             <Ramp price={price} address={address} networks={NETWORKS} />

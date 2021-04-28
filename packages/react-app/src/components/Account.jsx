@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "antd";
 import Address from "./Address";
 import Balance from "./Balance";
 import Wallet from "./Wallet";
+import Torus from "@toruslabs/torus-embed";
+import Web3 from "web3";
 import { useThemeSwitcher } from "react-css-theme-switcher";
 
 /*
@@ -39,6 +41,8 @@ import { useThemeSwitcher } from "react-css-theme-switcher";
               (ex. by default "https://etherscan.io/" or for xdai "https://blockscout.com/poa/xdai/")
 */
 
+const torus = new Torus({});
+
 export default function Account({
   address,
   userProvider,
@@ -52,15 +56,41 @@ export default function Account({
   blockExplorer,
 }) {
   const modalButtons = [];
+  const [account, setAccount] = useState();
+
+  const onClickLogin = async e => {
+    e.preventDefault();
+
+    try {
+      await torus.init({
+        enableLogging: false,
+      });
+    } catch (e) {}
+    await torus.login();
+
+    const web3 = new Web3(torus.provider);
+    const address = (await web3.eth.getAccounts())[0];
+    const balance = await web3.eth.getBalance(address);
+    const acc = { address, balance };
+    console.log("torus account", acc);
+
+    setAccount(acc);
+  };
+
+  const onLogout = async () => {
+    await torus.logout();
+    setAccount(undefined);
+  };
+
   if (web3Modal) {
-    if (web3Modal.cachedProvider) {
+    if (web3Modal.cachedProvider || account) {
       modalButtons.push(
         <Button
           key="logoutbutton"
           style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
           shape="round"
           size="large"
-          onClick={logoutOfWeb3Modal}
+          onClick={onLogout}
         >
           logout
         </Button>,
@@ -73,7 +103,7 @@ export default function Account({
           shape="round"
           size="large"
           /*type={minimized ? "default" : "primary"}     too many people just defaulting to MM and having a bad time*/
-          onClick={loadWeb3Modal}
+          onClick={onClickLogin}
         >
           connect
         </Button>,
@@ -82,16 +112,30 @@ export default function Account({
   }
 
   const { currentTheme } = useThemeSwitcher();
+  address = account ? account.address : address;
 
-  const display = minimized ? (
-    ""
-  ) : (
-    <span>
-      {address ? <Address address={address} ensProvider={mainnetProvider} blockExplorer={blockExplorer} /> : "Connecting..."}
-      <Balance address={address} provider={localProvider} price={price} />
-      <Wallet address={address} provider={userProvider} ensProvider={mainnetProvider} price={price} color={currentTheme == "light" ? "#1890ff" : "#2caad9"} />
-    </span>
-  );
+  const initialized = !!account;
+
+  const display =
+    minimized || !initialized ? (
+      ""
+    ) : (
+      <span>
+        {address ? (
+          <Address address={address} ensProvider={mainnetProvider} blockExplorer={blockExplorer} />
+        ) : (
+          "Connecting..."
+        )}
+        <Balance address={address} provider={localProvider} price={price} />
+        <Wallet
+          address={address}
+          provider={userProvider}
+          ensProvider={mainnetProvider}
+          price={price}
+          color={currentTheme == "light" ? "#1890ff" : "#2caad9"}
+        />
+      </span>
+    );
 
   return (
     <div>

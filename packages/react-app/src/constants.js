@@ -100,3 +100,5 @@ export const NETWORKS = {
         blockExplorer: "https://mumbai-explorer.matic.today/",
     }
 }
+
+export const APP_NAME = "Primechoice Select"
