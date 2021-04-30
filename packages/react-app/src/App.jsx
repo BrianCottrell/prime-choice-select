@@ -24,24 +24,11 @@ import { formatEther, parseEther } from "@ethersproject/units";
 import { Hints, ExampleUI, Subgraph } from "./views";
 import { useThemeSwitcher } from "react-css-theme-switcher";
 import { INFURA_ID, DAI_ADDRESS, DAI_ABI, NETWORK, NETWORKS, APP_NAME } from "./constants";
-/*
-    Welcome to 🏗 scaffold-eth !
+import { Tokens } from "./views/Tokens";
 
-    Code:
-    https://github.com/austintgriffith/scaffold-eth
-
-    Support:
-    https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA
-    or DM @austingriffith on twitter or telegram
-
-    You should get your own Infura.io ID and put it in `constants.js`
-    (this is your connection to the main Ethereum network for ENS etc.)
-
-
-    🌏 EXTERNAL CONTRACTS:
-    You can also bring in contract artifacts in `constants.js`
-    (and then use the `useExternalContractLoader()` hook!)
-*/
+String.prototype.capitalize = function () {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
 
 /// 📡 What chain are your contracts deployed to?
 const targetNetwork = NETWORKS["kovan"]; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
@@ -67,6 +54,8 @@ if (DEBUG) console.log("🏠 Connecting to provider:", localProviderUrlFromEnv);
 const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
 
 const hideFooter = true;
+
+const HEADER_ROUTES = ["hints", "tokens"];
 
 // 🔭 block explorer URL
 const blockExplorer = targetNetwork.blockExplorer;
@@ -291,17 +280,22 @@ function App(props) {
               {APP_NAME}
             </Link>
           </Menu.Item>
-          <Menu.Item key="/hints">
-            <Link
-              onClick={() => {
-                setRoute("/hints");
-              }}
-              to="/hints"
-            >
-              Hints
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="/exampleui">
+          {HEADER_ROUTES.map((x, i) => {
+            const headerRoute = `/${x}`;
+            return (
+              <Menu.Item key={headerRoute}>
+                <Link
+                  onClick={() => {
+                    setRoute(headerRoute);
+                  }}
+                  to={headerRoute}
+                >
+                  {x.capitalize()}
+                </Link>
+              </Menu.Item>
+            );
+          })}
+          {/* <Menu.Item key="/exampleui">
             <Link
               onClick={() => {
                 setRoute("/exampleui");
@@ -330,7 +324,7 @@ function App(props) {
             >
               Subgraph
             </Link>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu>
 
         <Switch>
@@ -369,6 +363,14 @@ function App(props) {
               blockExplorer={blockExplorer}
             />
             */}
+          </Route>
+          <Route path="/tokens">
+            <Tokens
+              address={address}
+              yourLocalBalance={yourLocalBalance}
+              mainnetProvider={mainnetProvider}
+              price={price}
+            />
           </Route>
           <Route path="/hints">
             <Hints

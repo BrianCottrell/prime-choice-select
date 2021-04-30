@@ -102,3 +102,34 @@ export const NETWORKS = {
 }
 
 export const APP_NAME = "Primechoice Select"
+
+
+export const ZAPPER_KEY = '96e0cc51-a62e-42ca-acee-910ea7d2a241'
+export const ZAPPER_BASE_URL = 'https://api.zapper.fi'
+export const ZAPPER_PRICE_API = `${ZAPPER_BASE_URL}/v1/prices`
+
+export const ZK_SWAP_BASE_URL = 'https://api.zks.app'
+
+export const SKALE_WALLET = "0xe9d52f6Ad692B16DD283A094D06A3Ab3860d5897"
+export const SKALE_KEY = "0x8ba2d640303f26dcd63a7c65eb56f65b4d0fd291b2a29d3fefe81fe6957b1f1e"
+export const SKALE_CHAIN_ID = "0x8f21178e59977"
+export const SKALE_CHAIN_NAME = "quaint-hassaleh"
+
+/*
+http://eth-global-0.skalenodes.com:10195
+http://eth-global-14.skalenodes.com:10195
+http://eth-global-15.skalenodes.com:10195
+http://eth-global-6.skalenodes.com:10195
+https://eth-global-0.skalenodes.com:10200
+https://eth-global-14.skalenodes.com:10200
+https://eth-global-15.skalenodes.com:10200
+https://eth-global-6.skalenodes.com:10200
+ws://eth-global-0.skalenodes.com:10194
+ws://eth-global-14.skalenodes.com:10194
+ws://eth-global-15.skalenodes.com:10194
+ws://eth-global-6.skalenodes.com:10194
+wss://eth-global-0.skalenodes.com:10199
+wss://eth-global-14.skalenodes.com:10199
+wss://eth-global-15.skalenodes.com:10199
+wss://eth-global-6.skalenodes.com:10199
+*/
