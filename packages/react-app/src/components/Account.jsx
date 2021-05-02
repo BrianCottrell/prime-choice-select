@@ -6,6 +6,7 @@ import Wallet from "./Wallet";
 import Torus from "@toruslabs/torus-embed";
 import Web3 from "web3";
 import { useThemeSwitcher } from "react-css-theme-switcher";
+import { WalletOutlined } from "@ant-design/icons";
 
 /*
   ~ What it does? ~
@@ -42,6 +43,8 @@ import { useThemeSwitcher } from "react-css-theme-switcher";
 */
 
 const torus = new Torus({});
+
+const TORUS = false;
 
 export default function Account({
   address,
@@ -90,7 +93,7 @@ export default function Account({
           style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
           shape="round"
           size="large"
-          onClick={onLogout}
+          onClick={TORUS ? onLogout : logoutOfWeb3Modal}
         >
           logout
         </Button>,
@@ -103,9 +106,10 @@ export default function Account({
           shape="round"
           size="large"
           /*type={minimized ? "default" : "primary"}     too many people just defaulting to MM and having a bad time*/
-          onClick={onClickLogin}
+          onClick={TORUS ? onClickLogin : loadWeb3Modal}
         >
-          connect
+          <WalletOutlined />
+          Connect Wallet
         </Button>,
       );
     }

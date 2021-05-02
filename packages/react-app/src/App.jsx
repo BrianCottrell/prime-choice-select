@@ -25,6 +25,7 @@ import { Hints, ExampleUI, Subgraph } from "./views";
 import { useThemeSwitcher } from "react-css-theme-switcher";
 import { INFURA_ID, DAI_ADDRESS, DAI_ABI, NETWORK, NETWORKS, APP_NAME } from "./constants";
 import { Tokens } from "./views/Tokens";
+import { Merchant } from "./views/Merchant";
 
 String.prototype.capitalize = function () {
   return this.charAt(0).toUpperCase() + this.slice(1);
@@ -266,10 +267,10 @@ function App(props) {
   return (
     <div className="App">
       {/* ✏️ Edit the header and change the title to your project name */}
-      <Header />
-      {networkDisplay}
       <BrowserRouter>
-        <Menu style={{ textAlign: "center" }} selectedKeys={[route]} mode="horizontal">
+        <Header />
+        {networkDisplay}
+        <Menu style={{ textAlign: "center", display: "none" }} selectedKeys={[route]} mode="horizontal">
           <Menu.Item key="/">
             <Link
               onClick={() => {
@@ -328,7 +329,7 @@ function App(props) {
         </Menu>
 
         <Switch>
-          <Route exact path="/">
+          <Route exact path={["/", "/home"]}>
             {/*
                 🎛 this scaffolding is full of commonly used components
                 this <Contract/> component will automatically parse your ABI
@@ -380,6 +381,24 @@ function App(props) {
               price={price}
             />
           </Route>
+          <Route path="/about">
+            <div style={{ margin: "auto", width: "70vw" }}>
+              A blockchain application that helps automatically select the best blockchain to facilitate a given
+              transaction based on the requirements of the payment. Allow merchants to retain more revenue for
+              themselves by optimizing for transaction cost. As a story, I tried to withdraw $10 in ethereum last week
+              and there was going to be a $7 gas fee charge to do so. This isn’t sustainable for small businesses and at
+              scale, so we wanted to make a solution (as a smart contract) that could help merchants invoice for
+              different purchases and enable the buyer to select the token that offers the best transaction value. We’re
+              an aggregator of layer 2 protocols and we consult all the different providers to determine in real time
+              which network is the cheapest to facilitate a transaction. Aggregate remaining layer 2 protocols (API's)
+              and consult these different providers to determine in real time which network is the cheapest to
+              facilitate a transaction. Finish UI that enables the payer to determine which protocol they would like to
+              use. Add smart contract that is used by two separate parties: 1) Merchant or invoicer 2) Payer contract
+              method and submitting the payment based on the optimal transaction protocol determined via the UI. We use
+              Cairo to prove that a given protocol is the best for a transaction given the information provided from the
+              layer 2 protocol aggregators.
+            </div>
+          </Route>
           <Route path="/exampleui">
             <ExampleUI
               address={address}
@@ -394,6 +413,16 @@ function App(props) {
               purpose={purpose}
               setPurposeEvents={setPurposeEvents}
             />
+          </Route>
+          <Route path="/merchant">
+            <div style={{ margin: "auto", width: "70vw" }}>
+              <Merchant />
+            </div>
+          </Route>
+          <Route path="/buyers">
+            <div style={{ margin: "auto", width: "70vw" }}>
+              <Tokens />
+            </div>
           </Route>
           <Route path="/mainnetdai">
             <Contract

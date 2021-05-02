@@ -1,0 +1,19 @@
+{
+  "tokens": [
+    {
+      "symbol": "0x455448",
+      "fee": 1,
+      "speed": 2
+    },
+    {
+      "symbol": "0x454f53",
+      "fee": 3,
+      "speed": 1
+    },
+    {
+      "symbol": "0x4f434e",
+      "fee": 2,
+      "speed": 1
+    }
+  ]
+}
