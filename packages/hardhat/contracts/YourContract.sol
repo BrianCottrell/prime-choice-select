@@ -8,7 +8,7 @@ contract YourContract {
 
   event SetPurpose(address sender, string purpose);
 
-  string public purpose = "Building Unstoppable Apps";
+  string public purpose = "I updated this purpose.";
   address public owner = 0xe5050eC33578Cb72554B696e6721369B660F3C72;
 
   constructor() {

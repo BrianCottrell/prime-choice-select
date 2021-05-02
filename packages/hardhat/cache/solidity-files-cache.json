@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/chrisbuonocore/personal/hackathons/ethglobal21/packages/hardhat/contracts/YourContract.sol": {
-      "lastModificationDate": 1619567468146,
-      "contentHash": "8bb5c6a6c3ec2dbf934bf07e1f0893f6",
+      "lastModificationDate": 1619999626887,
+      "contentHash": "8a1736d3ac4e01fb1d0435d6cecdc59e",
       "sourceName": "contracts/YourContract.sol",
       "solcConfig": {
         "version": "0.7.6",

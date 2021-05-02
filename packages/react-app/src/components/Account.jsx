@@ -116,9 +116,9 @@ export default function Account({
   }
 
   const { currentTheme } = useThemeSwitcher();
-  address = account ? account.address : address;
+  address = account && account.address ? account.address : address;
 
-  const initialized = !!account;
+  const initialized = !!account || address;
 
   const display =
     minimized || !initialized ? (
