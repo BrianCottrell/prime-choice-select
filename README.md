@@ -24,13 +24,16 @@ https://github.com/austintgriffith/scaffold-eth#%EF%B8%8F-quick-start
 
 Run the following services/commands in different terminal windows starting from the root directory of this project:
 
-1. Start local chain:
+1. Install dependencies when running for the first time:
+   `yarn install`
+
+2. Start local chain:
    `yarn chain`
 
-2. Deploy smart contract
+3. Deploy smart contract
    `yarn deploy`
 
-3. Start client website:
+4. Start client website:
    `yarn start`
 
 If successful Primechoice Select should now be ready and available on `localhost:3000`
