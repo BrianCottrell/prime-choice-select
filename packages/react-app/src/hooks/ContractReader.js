@@ -10,12 +10,12 @@ const DEBUG = false;
 
   ~ How can I use? ~
 
-  const purpose = useContractReader(readContracts,"YourContract", "purpose")
+  const purpose = useContractReader(readContracts,"PaymentContract", "purpose")
 
   ~ Features ~
 
   - Provide readContracts by loading contracts (see more on ContractLoader.js)
-  - Specify the name of the contract, in this case it is "YourContract"
+  - Specify the name of the contract, in this case it is "PaymentContract"
   - Specify the name of the variable in the contract, in this case we keep track of "purpose" variable
 */
 
@@ -35,30 +35,43 @@ export default function useContractReader(contracts, contractName, functionName,
     }
   }, [value, onChange]);
 
-  usePoller(async () => {
-    if (contracts && contracts[contractName]) {
-      try {
-        let newValue;
-        if (DEBUG) console.log("CALLING ", contractName, functionName, "with args", args);
-        if (args && args.length > 0) {
-          newValue = await contracts[contractName][functionName](...args);
-          if (DEBUG)
-            console.log("contractName", contractName, "functionName", functionName, "args", args, "RESULT:", newValue);
-        } else {
-          newValue = await contracts[contractName][functionName]();
+  usePoller(
+    async () => {
+      if (contracts && contracts[contractName]) {
+        try {
+          let newValue;
+          if (DEBUG) console.log("CALLING ", contractName, functionName, "with args", args);
+          if (args && args.length > 0) {
+            newValue = await contracts[contractName][functionName](...args);
+            if (DEBUG)
+              console.log(
+                "contractName",
+                contractName,
+                "functionName",
+                functionName,
+                "args",
+                args,
+                "RESULT:",
+                newValue,
+              );
+          } else {
+            newValue = await contracts[contractName][functionName]();
+          }
+          if (formatter && typeof formatter === "function") {
+            newValue = formatter(newValue);
+          }
+          // console.log("GOT VALUE",newValue)
+          if (newValue !== value) {
+            setValue(newValue);
+          }
+        } catch (e) {
+          console.log(e);
         }
-        if (formatter && typeof formatter === "function") {
-          newValue = formatter(newValue);
-        }
-        // console.log("GOT VALUE",newValue)
-        if (newValue !== value) {
-          setValue(newValue);
-        }
-      } catch (e) {
-        console.log(e);
       }
-    }
-  }, adjustPollTime, contracts && contracts[contractName]);
+    },
+    adjustPollTime,
+    contracts && contracts[contractName],
+  );
 
   return value;
 }

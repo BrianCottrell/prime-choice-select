@@ -5,7 +5,7 @@ import "hardhat/console.sol";
 // import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol";
 // import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract YourContract {
+contract PaymentContract {
   uint256 public price = 0;
   uint256 public maxResolutionTime = 0;
   string[] public supportedTokens;

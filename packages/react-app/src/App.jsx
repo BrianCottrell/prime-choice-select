@@ -109,10 +109,10 @@ function App(props) {
   ]);
 
   // keep track of a variable from the contract in the local React state:
-  const purpose = useContractReader(readContracts, "YourContract", "purpose");
+  const purpose = useContractReader(readContracts, "PaymentContract", "purpose");
 
   //📟 Listen for broadcast events
-  const setPurposeEvents = useEventListener(readContracts, "YourContract", "SetPurpose", localProvider, 1);
+  const setPurposeEvents = useEventListener(readContracts, "PaymentContract", "SetPurpose", localProvider, 1);
 
   /*
   const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
@@ -337,7 +337,7 @@ function App(props) {
             */}
 
             <Contract
-              name={"YourContract"}
+              name={"PaymentContract"}
               signer={userProvider.getSigner()}
               provider={localProvider}
               address={address}

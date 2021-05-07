@@ -7,12 +7,12 @@ import { useState, useEffect } from "react";
 
   ~ How can I use? ~
 
-  const setPurposeEvents = useEventListener(readContracts, "YourContract", "SetPurpose", localProvider, 1);
+  const setPurposeEvents = useEventListener(readContracts, "PaymentContract", "SetPurpose", localProvider, 1);
 
   ~ Features ~
 
   - Provide readContracts by loading contracts (see more on ContractLoader.js)
-  - Specify the name of the contract, in this case it is "YourContract"
+  - Specify the name of the contract, in this case it is "PaymentContract"
   - Specify the name of the event in the contract, in this case we keep track of "SetPurpose" event
   - Specify the provider 
 */
@@ -28,8 +28,8 @@ export default function useEventListener(contracts, contractName, eventName, pro
     if (contracts && contractName && contracts[contractName]) {
       try {
         contracts[contractName].on(eventName, (...args) => {
-          let blockNumber = args[args.length-1].blockNumber
-          setUpdates(messages => [Object.assign({blockNumber},args.pop().args), ...messages]);
+          let blockNumber = args[args.length - 1].blockNumber;
+          setUpdates(messages => [Object.assign({ blockNumber }, args.pop().args), ...messages]);
         });
         return () => {
           contracts[contractName].removeListener(eventName);
