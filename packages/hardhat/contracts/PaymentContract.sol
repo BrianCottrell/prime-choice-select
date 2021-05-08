@@ -41,7 +41,7 @@ contract PaymentContract {
     emit SetSupportedTokens(msg.sender, supportedTokens);
   }
 
-  function setPurpose(string memory _description) public {
+  function setPurpose(string memory _purpose) public {
     purpose = _purpose;
     emit SetPurpose(msg.sender, purpose);
   }
