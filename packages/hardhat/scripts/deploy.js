@@ -67,13 +67,13 @@ const main = async () => {
 
 const deploy = async (
   contractName,
-  _args = [0, 0, '', ''],
+  _args = [0, 0, "", ""],
   overrides = {},
   libraries = {}
 ) => {
   console.log(` 🛰  Deploying: ${contractName}`);
 
-  const contractArgs = _args || [0, 0, '', ''],;
+  const contractArgs = _args || [0, 0, "", ""];
   const contractArtifacts = await ethers.getContractFactory(contractName, {
     libraries: libraries,
   });

@@ -1,8 +1,48 @@
 module.exports = [
   {
-    "inputs": [],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_maxResolutionTime",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "_supportedTokens",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_description",
+        "type": "string"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      }
+    ],
+    "name": "SetDescription",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -53,13 +93,26 @@ module.exports = [
       },
       {
         "indexed": false,
-        "internalType": "string[]",
+        "internalType": "string",
         "name": "supportedTokens",
-        "type": "string[]"
+        "type": "string"
       }
     ],
     "name": "SetSupportedTokens",
     "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "description",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
     "inputs": [],
@@ -103,6 +156,19 @@ module.exports = [
   {
     "inputs": [
       {
+        "internalType": "string",
+        "name": "_description",
+        "type": "string"
+      }
+    ],
+    "name": "setDescription",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint256",
         "name": "_maxResolutionTime",
         "type": "uint256"
@@ -129,9 +195,9 @@ module.exports = [
   {
     "inputs": [
       {
-        "internalType": "string[]",
+        "internalType": "string",
         "name": "_supportedTokens",
-        "type": "string[]"
+        "type": "string"
       }
     ],
     "name": "setSupportedTokens",
@@ -140,13 +206,7 @@ module.exports = [
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "inputs": [],
     "name": "supportedTokens",
     "outputs": [
       {

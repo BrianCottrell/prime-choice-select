@@ -136,7 +136,7 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
         </Layout>
       </Layout>
       {/* https://docs.connext.network/widget */}
-      <ConnextModal
+      {/* <ConnextModal
         showModal={showModal}
         onClose={() => setShowModal(false)}
         onReady={params => console.log("MODAL IS READY =======>", params)}
@@ -146,7 +146,7 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
         depositChainProvider="https://goerli.infura.io/v3/<YOUR_PROJECT_ID>"
         withdrawAssetId={"0xfe4F5145f6e09952a5ba9e956ED0C25e3Fa4c7F1"}
         withdrawChainProvider="https://rpc-mumbai.matic.today"
-      />
+      /> */}
     </div>
   );
 };

@@ -19,25 +19,25 @@ func get_at(tokens : Token*, index : felt) -> (token : Token*):
     return (token=tokens+index)
 end
 
-# func find_best_token{range_check_ptr}(tokens : Token*, n : felt) -> (token : Token*):
-#     if n == 0:
-#         # When 0 is reached, return 0.
-#         return (token=best_token)
-#     else:
-#         if n == 1:
-#             return (token=tokens+0)
-#         end
-#     end
+func find_best_token{range_check_ptr}(tokens : Token*, n : felt) -> (token : Token*):
+    if n == 0:
+        # When 0 is reached, return 0.
+        return (token=best_token)
+    else:
+        if n == 1:
+            return (token=tokens+0)
+        end
+    end
 
-#     let next_token = tokens+Token.SIZE
-#     let (token) = find_best_token(tokens=next_token, n=n-1, best_token=best_token)
+    let next_token = tokens+Token.SIZE
+    let (token) = find_best_token(tokens=next_token, n=n-1, best_token=best_token)
 
-#     tempvar current_fee = token.fee
-#     tempvar lowest_fee = best_token.fee
-#     assert_lt(a=current_fee, b=lowest_fee)
+    tempvar current_fee = token.fee
+    tempvar lowest_fee = best_token.fee
+    assert_lt(a=current_fee, b=lowest_fee)
 
-#     return (token=best_token)
-# end
+    return (token=best_token)
+end
 
 func main{output_ptr : felt*, range_check_ptr}():
     alloc_locals  
