@@ -6,15 +6,15 @@ import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract PaymentContract is Ownable {
-  int public price;
+  int public amount;
   int public maxResolutionTime;
   string public supportedTokens;
   string public purpose;
 
-  event SetPrice(address sender, int price);
-  event SetMaxResolutionTime(address sender, int maxResolutionTime);
-  event SetSupportedTokens(address sender, string supportedTokens);
-  event SetPurpose(address sender, string purpose);
+  address public payer;
+  string public selectedToken;
+
+  event PaymentActivated(address sender, string selectedToken);
 
   /**
    * Network: Kovan
@@ -29,8 +29,8 @@ contract PaymentContract is Ownable {
   AggregatorV3Interface internal linkPriceFeed;
   AggregatorV3Interface internal uniPriceFeed;
 
-  constructor(int _price, int _maxResolutionTime, string memory _supportedTokens, string memory _purpose) public {
-    price = _price;
+  constructor(int _amount, int _maxResolutionTime, string memory _supportedTokens, string memory _purpose) public {
+    amount = _amount;
     maxResolutionTime = _maxResolutionTime;
     supportedTokens = _supportedTokens;
     purpose = _purpose;
@@ -39,56 +39,57 @@ contract PaymentContract is Ownable {
     uniPriceFeed = AggregatorV3Interface(0x17756515f112429471F86f98D5052aCB6C47f6ee);
   }
 
-  function setPrice(int _price) public onlyOwner {
-    price = _price;
-    emit SetPrice(msg.sender, price);
+  function setAmount(int _amount) public onlyOwner {
+    amount = _amount;
   }
 
   function setMaxResolutionTime(int _maxResolutionTime) public onlyOwner {
     maxResolutionTime = _maxResolutionTime;
-    emit SetMaxResolutionTime(msg.sender, maxResolutionTime);
   }
 
   function setSupportedTokens(string memory _supportedTokens) public onlyOwner {
     supportedTokens = _supportedTokens;
-    emit SetSupportedTokens(msg.sender, supportedTokens);
   }
 
   function setPurpose(string memory _purpose) public onlyOwner {
     purpose = _purpose;
-    emit SetPurpose(msg.sender, purpose);
+  }
+
+  function activate(string memory _selectedToken) public {
+    selectedToken = _selectedToken;
+    emit PaymentActivated(msg.sender, selectedToken);
   }
 
   function usdPrice() public view returns (int) {
     (
       uint80 roundID, 
-      int priceConversion,
+      int amountConversion,
       uint startedAt,
       uint timeStamp,
       uint80 answeredInRound
     ) = usdPriceFeed.latestRoundData();
-    return price * priceConversion;
+    return amount * amountConversion;
   }
 
   function linkToEth() public view returns (int) {
     (
       uint80 roundID, 
-      int priceConversion,
+      int amountConversion,
       uint startedAt,
       uint timeStamp,
       uint80 answeredInRound
     ) = linkPriceFeed.latestRoundData();
-    return priceConversion;
+    return amountConversion;
   }
 
   function uniToEth() public view returns (int) {
     (
       uint80 roundID, 
-      int priceConversion,
+      int amountConversion,
       uint startedAt,
       uint timeStamp,
       uint80 answeredInRound
     ) = uniPriceFeed.latestRoundData();
-    return priceConversion;
+    return amountConversion;
   }
 }

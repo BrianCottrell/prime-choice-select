@@ -8,6 +8,8 @@ import { Steps } from "antd";
 import { useParams } from "react-router";
 import { Tokens } from "./Tokens";
 import { Contract } from "../components";
+import { loadContract } from "../hooks/ContractLoader";
+import { CompletePayment } from "./CompletePayment";
 // import { ConnextModal } from "@connext/vector-modal";
 
 const { utils } = require("ethers");
@@ -15,19 +17,6 @@ const { utils } = require("ethers");
 const { Step } = Steps;
 
 const { Header, Footer, Sider, Content } = Layout;
-
-const marks = {
-  0: "0°C",
-  26: "26°C",
-  37: "37°C",
-  100: {
-    style: {
-      color: "#f50",
-    },
-    label: <strong>100°C</strong>,
-  },
-};
-
 const timeMarks = {
   standard: "standard",
   fast: "fast",
@@ -36,12 +25,13 @@ const timeMarks = {
 
 export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
   const [tokens, setTokens] = useState([]);
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(2);
   const [options, setOptions] = useState({});
   const [showModal, setShowModal] = React.useState(false);
 
   const urlParams = new URLSearchParams(window.location.search);
   const [contractAddress, setContractAddress] = useState(urlParams.get("payment", ""));
+  const [deployedContract, setDeployedContract] = useState();
   const [error, setError] = useState();
 
   const getTokens = async () => {
@@ -55,15 +45,20 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
   };
 
   useEffect(() => {
-    let result;
-    try {
-      utils.getAddress(contractAddress);
-      result = true;
-    } catch (e) {
-      result = false;
-    }
-    console.log("res", result);
-    setError(result ? "" : `Enter valid address to continue`);
+    const updateAddress = () => {
+      let result;
+      try {
+        utils.getAddress(contractAddress);
+        const newContract = loadContract("PaymentContract", signer, contractAddress);
+        setDeployedContract(newContract);
+        result = true;
+      } catch (e) {
+        result = false;
+      }
+      console.log("res", result);
+      setError(result ? "" : `Enter valid address to continue`);
+    };
+    updateAddress();
   }, [contractAddress]);
 
   const adjustStep = offset => {
@@ -90,14 +85,21 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
         return (
           // 0x9eae40784a2dEE295c32D4Bdc74C4175132B7573
           <div>
-            <Tokens />
-            <Contract />
+            <Contract
+              readOnly
+              customContract={deployedContract}
+              name={"PaymentContract"}
+              signer={signer}
+              provider={provider}
+              address={address}
+              blockExplorer={blockExplorer}
+            />
           </div>
         );
       case 2:
         return (
           <div>
-            <h1>Contract Created</h1>
+            <CompletePayment signer={signer} provider={provider} address={address} blockExplorer={blockExplorer} />
           </div>
         );
     }
@@ -127,11 +129,7 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
           <Footer>
             {error && <p className="error-text">{error}</p>}
             {currentStep != 0 && <Button onClick={() => adjustStep(-1)}>Back</Button>}
-            {currentStep != 2 && (
-              <div>
-                <Button onClick={() => adjustStep(1)}>{currentStep == 2 ? "Done" : "Next"}</Button>
-              </div>
-            )}
+            {currentStep != 2 && <Button onClick={() => adjustStep(1)}>{currentStep == 2 ? "Done" : "Next"}</Button>}
             {currentStep === 2 && <Button onClick={() => setShowModal(true)}>Pay with Connext</Button>}
           </Footer>
         </Layout>

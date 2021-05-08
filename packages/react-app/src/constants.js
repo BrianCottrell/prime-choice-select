@@ -374,6 +374,7 @@ export const NETWORKS = {
     blockExplorer: "https://mumbai-explorer.matic.today/",
   },
 };
+export const TARGET_NETWORK_NAME = "ropsten";
 
 export const APP_NAME = "Primechoice Select";
 export const APP_DESCRIPTION = "A blockchain aggregator to help you the cheapest network";

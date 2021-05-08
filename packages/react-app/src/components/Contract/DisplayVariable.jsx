@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Row, Col, Divider } from "antd";
 import tryToDisplay from "./utils";
 
-const DisplayVariable = ({ contractFunction, functionInfo, refreshRequired, triggerRefresh}) => {
+const DisplayVariable = ({ onUpdate, contractFunction, functionInfo, refreshRequired, triggerRefresh}) => {
   const [variable, setVariable] = useState("");
 
   const refresh = useCallback(async () => {
@@ -12,6 +12,7 @@ const DisplayVariable = ({ contractFunction, functionInfo, refreshRequired, trig
       const funcResponse = await contractFunction();
       setVariable(funcResponse);
       triggerRefresh(false);
+      onUpdate && onUpdate(funcResponse)
     } catch (e) {
       console.log(e);
     }

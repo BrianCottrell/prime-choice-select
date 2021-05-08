@@ -70,7 +70,7 @@ export default function Contract({
     () =>
       contract
         ? Object.values(contract.interface.functions).filter(
-            fn => fn.type === "function" && !(show && show.indexOf(fn.name) < 0),
+            fn => fn.type === "function" && !(show && show.indexOf(fn.name) < 0) && (!readOnly || isQueryable(fn)),
           )
         : [],
     [contract, show],

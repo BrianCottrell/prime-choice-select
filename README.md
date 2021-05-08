@@ -37,3 +37,19 @@ Run the following services/commands in different terminal windows starting from 
    `yarn start`
 
 If successful Primechoice Select should now be ready and available on `localhost:3000`
+
+### Selecting network
+
+- Update `defaultNetwork` in hardhat.config.js in hardhat package>
+- Update `TARGET_NETWORK_NAME` in constants.js in react package.
+
+<!--
+### Demo
+1. Want to collect a payment with optimal fees
+2. Create as one time or subscription Payment (choose subscription), ask for example tokens.
+3. Generate a url - url can be shared with the buyer or on your website.
+4.
+
+
+
+-->

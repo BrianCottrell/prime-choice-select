@@ -3,7 +3,7 @@ module.exports = [
     "inputs": [
       {
         "internalType": "int256",
-        "name": "_price",
+        "name": "_amount",
         "type": "int256"
       },
       {
@@ -55,70 +55,39 @@ module.exports = [
       },
       {
         "indexed": false,
-        "internalType": "int256",
-        "name": "maxResolutionTime",
-        "type": "int256"
-      }
-    ],
-    "name": "SetMaxResolutionTime",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "int256",
-        "name": "price",
-        "type": "int256"
-      }
-    ],
-    "name": "SetPrice",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      },
-      {
-        "indexed": false,
         "internalType": "string",
-        "name": "purpose",
+        "name": "selectedToken",
         "type": "string"
       }
     ],
-    "name": "SetPurpose",
+    "name": "PaymentActivated",
     "type": "event"
   },
   {
-    "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      },
-      {
-        "indexed": false,
         "internalType": "string",
-        "name": "supportedTokens",
+        "name": "_selectedToken",
         "type": "string"
       }
     ],
-    "name": "SetSupportedTokens",
-    "type": "event"
+    "name": "activate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "amount",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
     "inputs": [],
@@ -161,12 +130,12 @@ module.exports = [
   },
   {
     "inputs": [],
-    "name": "price",
+    "name": "payer",
     "outputs": [
       {
-        "internalType": "int256",
+        "internalType": "address",
         "name": "",
-        "type": "int256"
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -193,14 +162,27 @@ module.exports = [
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "selectedToken",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "int256",
-        "name": "_maxResolutionTime",
+        "name": "_amount",
         "type": "int256"
       }
     ],
-    "name": "setMaxResolutionTime",
+    "name": "setAmount",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -209,11 +191,11 @@ module.exports = [
     "inputs": [
       {
         "internalType": "int256",
-        "name": "_price",
+        "name": "_maxResolutionTime",
         "type": "int256"
       }
     ],
-    "name": "setPrice",
+    "name": "setMaxResolutionTime",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

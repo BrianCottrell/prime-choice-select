@@ -8,6 +8,7 @@ import { useContractLoader } from "../hooks";
 import { ethers } from "ethers";
 import { Select } from "antd";
 import { Input } from "antd";
+import { DollarOutlined } from "@ant-design/icons";
 
 const { TextArea } = Input;
 
@@ -32,6 +33,7 @@ const amountMarks = {
 const typeMarks = {
   0: "One time purchase",
   1: "Subscription (monthly)",
+  2: "Subscription (daily)",
 };
 
 const timeMarks = {
@@ -43,7 +45,7 @@ const timeMarks = {
 export const Merchant = ({ name, signer, provider, address, blockExplorer }) => {
   const [tokens, setTokens] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
-  const [params, setParams] = useState({ speed: 2, amount: 1, coins: [], purpose: "", type: 0 });
+  const [params, setParams] = useState({ speed: 2, amount: undefined, coins: [], purpose: "", type: 0 });
   const [deployedAddress, setDeployedAddress] = useState();
   const contracts = useContractLoader(provider);
 
@@ -72,11 +74,10 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
     // Create an instance of a Contract Factory
     let factory = new ethers.ContractFactory(abi, bytecode, signer);
 
-    // Notice we pass in "Hello World" as the parameter to the constructor
-    let contract = await factory.deploy([params.amount, params.speed, params.coins.join(","), params.purpose]);
+    const amount = parseInt(params.amount);
 
-    // The address the Contract WILL have once mined
-    // See: https://ropsten.etherscan.io/address/0x2bd9aaa2953f988153c8629926d22a6a5f69b14e
+    let contract = await factory.deploy(amount, params.speed, params.coins.join(","), params.purpose);
+
     console.log("address", contract.address);
     setDeployedAddress(contract.address);
     setCurrentStep(2);
@@ -87,6 +88,7 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
       case 0:
         return (
           <div>
+            <p>Enter the description for the payment</p>
             <TextArea
               showCount
               rows={4}
@@ -99,6 +101,17 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
               }}
             />
             <br />
+            <Input
+              prefix={
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png" />
+              }
+              size="large"
+              placeholder="Amount in Ether"
+              value={params.amount}
+              onChange={e => setParams({ ...params, amount: e.target.value })}
+            />
+            <br />
+            <p>Payment details:</p>
             <Select
               defaultValue={typeMarks[params.type]}
               style={{ width: 120 }}
@@ -126,7 +139,8 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
               })}
             </Select>
             <br />
-            <hr />
+            <br />
+            <p>Allowed currencies:</p>
             <Select
               mode="multiple"
               allowClear
@@ -145,12 +159,33 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
         );
       case 1:
         // https://docs.ethers.io/v4/api-contract.html#deploying-a-contract
-        return <div></div>;
-      case 2:
+        const keys = Object.keys(params);
         return (
           <div>
-            <h1>Contract Created</h1>
-            <p>{deployedAddress}</p>
+            <h1>Preview Payment:</h1>
+            {keys.map((k, i) => {
+              return (
+                <p key={i}>
+                  <b>{k}</b>: {Array.isArray(params[k]) ? params[k].join(", ") : params[k]}
+                </p>
+              );
+            })}
+          </div>
+        );
+      case 2:
+        const payUrl = `${window.location.hostname}/send?payment=${deployedAddress}`;
+        return (
+          <div>
+            <h1>Contract Created!</h1>
+            <p>
+              <b>{deployedAddress}</b>
+            </p>
+            <p>
+              Payment url:{" "}
+              <a href={payUrl} target="_blank">
+                {payUrl}
+              </a>
+            </p>
           </div>
         );
     }
@@ -175,7 +210,7 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
         </Sider>
         <Layout>
           <Header>
-            <h1>Register a Payment</h1>
+            <h1>Create Payment Request</h1>
           </Header>
           <Content className="content">{getBody()}</Content>
           <Footer>

@@ -26,6 +26,7 @@ import { useThemeSwitcher } from "react-css-theme-switcher";
 import { INFURA_ID, DAI_ADDRESS, DAI_ABI, NETWORK, NETWORKS, APP_NAME } from "./constants";
 import { Tokens } from "./views/Tokens";
 import { Merchant } from "./views/Merchant";
+import { TARGET_NETWORK_NAME } from "./constants";
 import logo from "./assets/logo.png";
 import { Payer } from "./views/Payer";
 
@@ -33,8 +34,7 @@ String.prototype.capitalize = function () {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
-/// 📡 What chain are your contracts deployed to?
-const targetNetwork = NETWORKS["kovan"]; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const targetNetwork = NETWORKS[TARGET_NETWORK_NAME]; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 const DEBUG = true;
