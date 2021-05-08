@@ -4,8 +4,11 @@ pragma experimental ABIEncoderV2;
 import "hardhat/console.sol";
 import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "../deps/UsingTellor.sol";
 
-contract PaymentContract is Ownable {
+// https://github.com/superfluid-finance
+
+contract PaymentContract is Ownable, UsingTellor {
   int public amount;
   int public maxResolutionTime;
   string public supportedTokens;
@@ -13,6 +16,19 @@ contract PaymentContract is Ownable {
 
   address public payer;
   string public selectedToken;
+
+    uint256 btcPrice;
+  uint256 btcRequetId = 2;
+
+  // constructor(address payable _tellorAddress)  public {}
+
+  function setBtcPrice() public {
+    bool _didGet;
+    uint _timestamp;
+    uint _value;
+
+    (_didGet, btcPrice, _timestamp) = getCurrentValue(btcRequetId);
+  }
 
   event PaymentActivated(address sender, string selectedToken);
 
@@ -29,7 +45,9 @@ contract PaymentContract is Ownable {
   AggregatorV3Interface internal linkPriceFeed;
   AggregatorV3Interface internal uniPriceFeed;
 
-  constructor(int _amount, int _maxResolutionTime, string memory _supportedTokens, string memory _purpose) public {
+  constructor(int _amount, int _maxResolutionTime, string memory _supportedTokens, string memory _purpose,
+ address payable _tellorAddress
+  ) UsingTellor(_tellorAddress) public {
     amount = _amount;
     maxResolutionTime = _maxResolutionTime;
     supportedTokens = _supportedTokens;

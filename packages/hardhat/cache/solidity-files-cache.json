@@ -2,7 +2,7 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/chrisbuonocore/personal/hackathons/ethglobal21/packages/hardhat/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1619400208826,
+      "lastModificationDate": 1620513872413,
       "contentHash": "cc4777addd464ea56fa35b1c45df0591",
       "sourceName": "hardhat/console.sol",
       "solcConfig": {
@@ -36,8 +36,8 @@
       ]
     },
     "/Users/chrisbuonocore/personal/hackathons/ethglobal21/packages/hardhat/contracts/PaymentContract.sol": {
-      "lastModificationDate": 1620502980344,
-      "contentHash": "46355a41305ed50e8eb6eb67e1d6f9a2",
+      "lastModificationDate": 1620514562528,
+      "contentHash": "17caefd0fa556b67996d973156deb966",
       "sourceName": "contracts/PaymentContract.sol",
       "solcConfig": {
         "version": "0.6.7",
@@ -64,7 +64,8 @@
       "imports": [
         "hardhat/console.sol",
         "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol",
-        "@openzeppelin/contracts/access/Ownable.sol"
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "../deps/UsingTellor.sol"
       ],
       "versionPragmas": [
         ">=0.6.0 <0.9.0"
@@ -115,7 +116,7 @@
       ]
     },
     "/Users/chrisbuonocore/personal/hackathons/ethglobal21/packages/hardhat/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1619400262723,
+      "lastModificationDate": 1620513873547,
       "contentHash": "140e80ebd07ed05e7fe907c531e6746f",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -428,7 +429,7 @@
       ]
     },
     "/Users/chrisbuonocore/personal/hackathons/ethglobal21/packages/hardhat/node_modules/@openzeppelin/contracts/GSN/Context.sol": {
-      "lastModificationDate": 1619400262685,
+      "lastModificationDate": 1620513873548,
       "contentHash": "af1b36323856d0d1550abc7f878a8208",
       "sourceName": "@openzeppelin/contracts/GSN/Context.sol",
       "solcConfig": {
@@ -462,7 +463,7 @@
       ]
     },
     "/Users/chrisbuonocore/personal/hackathons/ethglobal21/packages/hardhat/node_modules/@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol": {
-      "lastModificationDate": 1620434088320,
+      "lastModificationDate": 1620513877665,
       "contentHash": "b213894d1186ed5f03cceedb9a7811a2",
       "sourceName": "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol",
       "solcConfig": {
@@ -493,6 +494,76 @@
       ],
       "artifacts": [
         "AggregatorV3Interface"
+      ]
+    },
+    "/Users/chrisbuonocore/personal/hackathons/ethglobal21/packages/hardhat/deps/UsingTellor.sol": {
+      "lastModificationDate": 1620514555611,
+      "contentHash": "482f097860fba0b7725aa3f10b3351a8",
+      "sourceName": "deps/UsingTellor.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ITellor.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0"
+      ],
+      "artifacts": [
+        "UsingTellor"
+      ]
+    },
+    "/Users/chrisbuonocore/personal/hackathons/ethglobal21/packages/hardhat/deps/ITellor.sol": {
+      "lastModificationDate": 1620514555422,
+      "contentHash": "9bf82d947bee48fd0aa0685ef1259fef",
+      "sourceName": "deps/ITellor.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0"
+      ],
+      "artifacts": [
+        "ITellor"
       ]
     }
   }

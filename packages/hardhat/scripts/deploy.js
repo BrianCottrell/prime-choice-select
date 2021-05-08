@@ -65,15 +65,21 @@ const main = async () => {
   );
 };
 
+// test deployer: 0x980108ee67ae15d564c6d486ac4b7e44ba07014c
+
+// https://github.com/tellor-io/sampleUsingTellor#addresses
+// ropsten: 0x20374E579832859f180536A69093A126Db1c8aE9
+const NETWORK_SPECIFIC_TELLOR_ADDRESS = "0x20374E579832859f180536A69093A126Db1c8aE9";
+
 const deploy = async (
   contractName,
-  _args = [0, 0, "", ""],
+  _args = [0, 0, "", "", NETWORK_SPECIFIC_TELLOR_ADDRESS],
   overrides = {},
   libraries = {}
 ) => {
   console.log(` 🛰  Deploying: ${contractName}`);
 
-  const contractArgs = _args || [0, 0, "", ""];
+  const contractArgs = _args;
   const contractArtifacts = await ethers.getContractFactory(contractName, {
     libraries: libraries,
   });
