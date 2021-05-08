@@ -36,8 +36,8 @@
       ]
     },
     "/Users/chrisbuonocore/personal/hackathons/ethglobal21/packages/hardhat/contracts/PaymentContract.sol": {
-      "lastModificationDate": 1620435578625,
-      "contentHash": "d12d431ff3f3f3c964380cbffc5df124",
+      "lastModificationDate": 1620482026070,
+      "contentHash": "b4e1458f23b888df06197cace2ba10eb",
       "sourceName": "contracts/PaymentContract.sol",
       "solcConfig": {
         "version": "0.6.7",
@@ -63,7 +63,7 @@
       },
       "imports": [
         "hardhat/console.sol",
-        "@chainlink/contracts/src/v0.6/ChainlinkClient.sol",
+        "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol",
         "@openzeppelin/contracts/access/Ownable.sol"
       ],
       "versionPragmas": [
@@ -459,6 +459,40 @@
       ],
       "artifacts": [
         "Context"
+      ]
+    },
+    "/Users/chrisbuonocore/personal/hackathons/ethglobal21/packages/hardhat/node_modules/@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol": {
+      "lastModificationDate": 1620434088320,
+      "contentHash": "b213894d1186ed5f03cceedb9a7811a2",
+      "sourceName": "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0"
+      ],
+      "artifacts": [
+        "AggregatorV3Interface"
       ]
     }
   }

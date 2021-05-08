@@ -331,7 +331,17 @@ function App(props) {
         </Menu>
 
         <Switch>
-          <Route exact path={["/", "/home"]}></Route>
+           <Route exact path={["/", "/home"]}>
+            <div style={{ margin: "auto", width: "70vw" }}>
+              <h2>What would you like to do?</h2>
+              <p>Send a payment</p>
+              <Button onClick={() => setRoute("/send")}>SEND</Button>
+              <p>Request a payment</p>
+              <Button onClick={() => setRoute("/request")}>REQUEST</Button>
+              <p>Explore Prime Choice Select</p>
+              <Button onClick={() => setRoute("/about")}>EXPLORE</Button>
+            </div>
+          </Route>
           <Route path="/tokens">
             <Tokens
               address={address}

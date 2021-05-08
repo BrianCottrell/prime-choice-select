@@ -25,7 +25,7 @@ https://github.com/austintgriffith/scaffold-eth#%EF%B8%8F-quick-start
 Run the following services/commands in different terminal windows starting from the root directory of this project:
 
 1. Install dependencies when running for the first time:
-   `yarn install`
+   `yarn`
 
 2. Start local chain:
    `yarn chain`

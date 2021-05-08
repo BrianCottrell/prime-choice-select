@@ -2,14 +2,14 @@ module.exports = [
   {
     "inputs": [
       {
-        "internalType": "uint256",
+        "internalType": "int256",
         "name": "_price",
-        "type": "uint256"
+        "type": "int256"
       },
       {
-        "internalType": "uint256",
+        "internalType": "int256",
         "name": "_maxResolutionTime",
-        "type": "uint256"
+        "type": "int256"
       },
       {
         "internalType": "string",
@@ -29,6 +29,25 @@ module.exports = [
     "anonymous": false,
     "inputs": [
       {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
         "indexed": false,
         "internalType": "address",
         "name": "sender",
@@ -36,9 +55,9 @@ module.exports = [
       },
       {
         "indexed": false,
-        "internalType": "uint256",
+        "internalType": "int256",
         "name": "maxResolutionTime",
-        "type": "uint256"
+        "type": "int256"
       }
     ],
     "name": "SetMaxResolutionTime",
@@ -55,9 +74,9 @@ module.exports = [
       },
       {
         "indexed": false,
-        "internalType": "uint256",
+        "internalType": "int256",
         "name": "price",
-        "type": "uint256"
+        "type": "int256"
       }
     ],
     "name": "SetPrice",
@@ -103,12 +122,25 @@ module.exports = [
   },
   {
     "inputs": [],
+    "name": "linkToEth",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "maxResolutionTime",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "int256",
         "name": "",
-        "type": "uint256"
+        "type": "int256"
       }
     ],
     "stateMutability": "view",
@@ -132,9 +164,9 @@ module.exports = [
     "name": "price",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "int256",
         "name": "",
-        "type": "uint256"
+        "type": "int256"
       }
     ],
     "stateMutability": "view",
@@ -154,11 +186,18 @@ module.exports = [
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
-        "internalType": "uint256",
+        "internalType": "int256",
         "name": "_maxResolutionTime",
-        "type": "uint256"
+        "type": "int256"
       }
     ],
     "name": "setMaxResolutionTime",
@@ -169,9 +208,9 @@ module.exports = [
   {
     "inputs": [
       {
-        "internalType": "uint256",
+        "internalType": "int256",
         "name": "_price",
-        "type": "uint256"
+        "type": "int256"
       }
     ],
     "name": "setPrice",
@@ -213,6 +252,45 @@ module.exports = [
         "internalType": "string",
         "name": "",
         "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "uniToEth",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "usdPrice",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
       }
     ],
     "stateMutability": "view",
