@@ -73,7 +73,7 @@ const deploy = async (
 ) => {
   console.log(` 🛰  Deploying: ${contractName}`);
 
-  const contractArgs = _args || [0, 0, '', ''],;
+  const contractArgs = _args || [0, 0, '', ''];
   const contractArtifacts = await ethers.getContractFactory(contractName, {
     libraries: libraries,
   });
