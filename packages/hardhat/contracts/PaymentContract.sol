@@ -4,8 +4,8 @@ pragma experimental ABIEncoderV2;
 import "hardhat/console.sol";
 import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "usingtellor/contracts/UsingTellor.sol";
-import "usingtellor/contracts/TellorPlayground.sol";
+// import "usingtellor/contracts/UsingTellor.sol";
+// import "usingtellor/contracts/TellorPlayground.sol";
 
 contract PaymentContract {
   uint256 public price = 0;
@@ -41,7 +41,7 @@ contract PaymentContract {
     emit SetSupportedTokens(msg.sender, supportedTokens);
   }
 
-  function setPurpose(string memory _description) public {
+  function setPurpose(string memory _purpose) public {
     purpose = _purpose;
     emit SetPurpose(msg.sender, purpose);
   }

@@ -55,7 +55,11 @@ export default function useContractReader(contracts, contractName, functionName,
                 newValue,
               );
           } else {
-            newValue = await contracts[contractName][functionName]();
+            try {
+              newValue = await contracts[contractName][functionName]();
+            } catch (e) {
+              console.log("error reading function", contractName, functionName);
+            }
           }
           if (formatter && typeof formatter === "function") {
             newValue = formatter(newValue);

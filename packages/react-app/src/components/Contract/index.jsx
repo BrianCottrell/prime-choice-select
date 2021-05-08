@@ -53,6 +53,7 @@ export default function Contract({
   show,
   price,
   blockExplorer,
+  readOnly=false
 }) {
   const contracts = useContractLoader(provider);
   let contract;

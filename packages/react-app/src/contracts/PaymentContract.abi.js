@@ -18,31 +18,12 @@ module.exports = [
       },
       {
         "internalType": "string",
-        "name": "_description",
+        "name": "_purpose",
         "type": "string"
       }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "string",
-        "name": "description",
-        "type": "string"
-      }
-    ],
-    "name": "SetDescription",
-    "type": "event"
   },
   {
     "anonymous": false,
@@ -94,25 +75,31 @@ module.exports = [
       {
         "indexed": false,
         "internalType": "string",
+        "name": "purpose",
+        "type": "string"
+      }
+    ],
+    "name": "SetPurpose",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
         "name": "supportedTokens",
         "type": "string"
       }
     ],
     "name": "SetSupportedTokens",
     "type": "event"
-  },
-  {
-    "inputs": [],
-    "name": "description",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
   },
   {
     "inputs": [],
@@ -154,16 +141,16 @@ module.exports = [
     "type": "function"
   },
   {
-    "inputs": [
+    "inputs": [],
+    "name": "purpose",
+    "outputs": [
       {
         "internalType": "string",
-        "name": "_description",
+        "name": "",
         "type": "string"
       }
     ],
-    "name": "setDescription",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -188,6 +175,19 @@ module.exports = [
       }
     ],
     "name": "setPrice",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_purpose",
+        "type": "string"
+      }
+    ],
+    "name": "setPurpose",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

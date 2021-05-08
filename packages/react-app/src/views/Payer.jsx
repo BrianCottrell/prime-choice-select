@@ -7,6 +7,7 @@ import { getZksTokens } from "../api";
 import { Steps } from "antd";
 import { useParams } from "react-router";
 import { Tokens } from "./Tokens";
+import { Contract } from "../components";
 // import { ConnextModal } from "@connext/vector-modal";
 
 const { utils } = require("ethers");
@@ -39,8 +40,6 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
   const [options, setOptions] = useState({});
   const [showModal, setShowModal] = React.useState(false);
 
-  let { payment } = useParams();
-  console.log("payment", payment);
   const urlParams = new URLSearchParams(window.location.search);
   const [contractAddress, setContractAddress] = useState(urlParams.get("payment", ""));
   const [error, setError] = useState();
@@ -89,8 +88,10 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
         );
       case 1:
         return (
+          // 0x9eae40784a2dEE295c32D4Bdc74C4175132B7573
           <div>
             <Tokens />
+            <Contract />
           </div>
         );
       case 2:

@@ -4,6 +4,8 @@ import { Layout } from "antd";
 import React, { useEffect, useState } from "react";
 import { getZksTokens } from "../api";
 import { Steps } from "antd";
+import { useContractLoader } from "../hooks";
+import { ethers } from "ethers";
 
 const { Step } = Steps;
 
@@ -31,6 +33,8 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
   const [tokens, setTokens] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [options, setOptions] = useState({});
+  const [deployedAddress, setDeployedAddress] = useState();
+  const contracts = useContractLoader(provider);
 
   const getTokens = async () => {
     try {
@@ -42,8 +46,29 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
     }
   };
 
-  const adjustStep = offset => {
-    setCurrentStep(currentStep + offset);
+  const adjustStep = async offset => {
+    const nextStep = currentStep + offset;
+    if (nextStep == 2) {
+      await deploy();
+      return;
+    }
+    setCurrentStep(nextStep);
+  };
+
+  const deploy = async () => {
+    const { abi, bytecode } = contracts.PaymentContract;
+
+    // Create an instance of a Contract Factory
+    let factory = new ethers.ContractFactory(abi, bytecode, signer);
+
+    // Notice we pass in "Hello World" as the parameter to the constructor
+    let contract = await factory.deploy(0, 0, "", "");
+
+    // The address the Contract WILL have once mined
+    // See: https://ropsten.etherscan.io/address/0x2bd9aaa2953f988153c8629926d22a6a5f69b14e
+    console.log("address", contract.address);
+    setDeployedAddress(contract.address);
+    setCurrentStep(2);
   };
 
   const getBody = () => {
@@ -57,11 +82,13 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
           </div>
         );
       case 1:
+        // https://docs.ethers.io/v4/api-contract.html#deploying-a-contract
         return <div></div>;
-      case 1:
+      case 2:
         return (
           <div>
             <h1>Contract Created</h1>
+            <p>{deployedAddress}</p>
           </div>
         );
     }
@@ -91,7 +118,11 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
           <Content className="content">{getBody()}</Content>
           <Footer>
             {currentStep != 0 && <Button onClick={() => adjustStep(-1)}>Back</Button>}
-            {currentStep != 2 && <Button onClick={() => adjustStep(1)}>{currentStep == 2 ? "Done" : "Next"}</Button>}
+            {currentStep != 2 && (
+              <Button onClick={() => adjustStep(1)}>
+                {currentStep == 2 ? "Done" : currentStep == 1 ? "Deploy" : "Next"}
+              </Button>
+            )}
           </Footer>
         </Layout>
       </Layout>

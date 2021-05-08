@@ -26,13 +26,11 @@ import { useState, useEffect } from "react";
 */
 
 const loadContract = (contractName, signer, contractAddress) => {
-  const newContract = new Contract(
-    contractAddress || require(`../contracts/${contractName}.address.js`),
-    require(`../contracts/${contractName}.abi.js`),
-    signer,
-  );
+  const abi = require(`../contracts/${contractName}.abi.js`);
+  const newContract = new Contract(contractAddress || require(`../contracts/${contractName}.address.js`), abi, signer);
   try {
     newContract.bytecode = require(`../contracts/${contractName}.bytecode.js`);
+    newContract.abi = abi;
   } catch (e) {
     console.log(e);
   }
