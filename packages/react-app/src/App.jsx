@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Link, useHistory } from "react-router-dom";
 import "antd/dist/antd.css";
 import { JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
 import "./App.css";
@@ -233,7 +233,8 @@ function App(props) {
 
   const [route, setRoute] = useState();
   useEffect(() => {
-    setRoute(window.location.pathname);
+    const loc = window.location.pathname;
+    setRoute(loc);
   }, [setRoute]);
 
   let faucetHint = "";
@@ -331,15 +332,38 @@ function App(props) {
         </Menu>
 
         <Switch>
-           <Route exact path={["/", "/home"]}>
-            <div style={{ margin: "auto", width: "70vw" }}>
+          <Route exact path={["/", "/home"]}>
+            <div style={{ margin: "auto", width: "70vw" }} className="home-section">
+              <img src={logo} className="main-logo" />
+              <h1>{APP_NAME}</h1>
               <h2>What would you like to do?</h2>
               <p>Send a payment</p>
-              <Button onClick={() => setRoute("/send")}>SEND</Button>
+              <Link
+                onClick={() => {
+                  setRoute("/send");
+                }}
+                to="/send"
+              >
+                <Button>SEND</Button>
+              </Link>
               <p>Request a payment</p>
-              <Button onClick={() => setRoute("/request")}>REQUEST</Button>
+              <Link
+                onClick={() => {
+                  setRoute("/request");
+                }}
+                to="/request"
+              >
+                <Button>REQUEST</Button>
+              </Link>
               <p>Explore Prime Choice Select</p>
-              <Button onClick={() => setRoute("/about")}>EXPLORE</Button>
+              <Link
+                onClick={() => {
+                  setRoute("/about");
+                }}
+                to="/about"
+              >
+                <Button>ABOUT</Button>
+              </Link>
             </div>
           </Route>
           <Route path="/tokens">
@@ -360,16 +384,17 @@ function App(props) {
           </Route>
           <Route path="/about">
             <div style={{ margin: "auto", width: "70vw" }}>
-              <img src={logo} />
+              <img src={logo} className="main-logo" />
+              <h1>{APP_NAME}</h1>
               <p>
-                Primechoice Select is a blockchain application that helps automatically select the best blockchain to
-                facilitate a given transaction based on the requirements of the payment. Allow merchants to retain more
-                revenue for themselves by optimizing for transaction cost. As a story, I tried to withdraw $10 in
-                ethereum last week and there was going to be a $7 gas fee charge to do so. This isn’t sustainable for
-                small businesses and at scale, so we wanted to make a solution (as a smart contract) that could help
-                merchants invoice for different purchases and enable the buyer to select the token that offers the best
-                transaction value. We’re an aggregator of layer 2 protocols and we consult all the different providers
-                to determine in real time which network is the cheapest to facilitate a transaction.
+                {APP_NAME} is a blockchain application that helps automatically select the best blockchain to facilitate
+                a given transaction based on the requirements of the payment. Allow merchants to retain more revenue for
+                themselves by optimizing for transaction cost. As a story, I tried to withdraw $10 in ethereum last week
+                and there was going to be a $7 gas fee charge to do so. This isn’t sustainable for small businesses and
+                at scale, so we wanted to make a solution (as a smart contract) that could help merchants invoice for
+                different purchases and enable the buyer to select the token that offers the best transaction value.
+                We’re an aggregator of layer 2 protocols and we consult all the different providers to determine in real
+                time which network is the cheapest to facilitate a transaction.
               </p>
 
               <p>
@@ -380,7 +405,7 @@ function App(props) {
               <h5>Not ready to send an invoice yet? Try out the test invoice creator below!</h5>
               <br />
 
-              <h1>Payment Playground</h1>
+              <h3>Payment Playground</h3>
               <Contract
                 name={"PaymentContract"}
                 signer={userProvider.getSigner()}

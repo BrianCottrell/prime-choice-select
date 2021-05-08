@@ -11,14 +11,14 @@ const noContractDisplay = (
     <div style={{ padding: 32 }}>
       You need to run{" "}
       <span
-        class="highlight"
+        className="highlight"
         style={{ marginLeft: 4, /*backgroundColor: "#f1f1f1",*/ padding: 4, borderRadius: 4, fontWeight: "bolder" }}
       >
         yarn run chain
       </span>{" "}
       and{" "}
       <span
-        class="highlight"
+        className="highlight"
         style={{ marginLeft: 4, /*backgroundColor: "#f1f1f1",*/ padding: 4, borderRadius: 4, fontWeight: "bolder" }}
       >
         yarn run deploy
@@ -31,7 +31,7 @@ const noContractDisplay = (
       </span>
       Warning: You might need to run
       <span
-        class="highlight"
+        className="highlight"
         style={{ marginLeft: 4, /*backgroundColor: "#f1f1f1",*/ padding: 4, borderRadius: 4, fontWeight: "bolder" }}
       >
         yarn run deploy
@@ -53,7 +53,7 @@ export default function Contract({
   show,
   price,
   blockExplorer,
-  readOnly=false
+  readOnly = false,
 }) {
   const contracts = useContractLoader(provider);
   let contract;

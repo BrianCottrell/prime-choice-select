@@ -6,6 +6,12 @@ import { getZksTokens } from "../api";
 import { Steps } from "antd";
 import { useContractLoader } from "../hooks";
 import { ethers } from "ethers";
+import { Select } from "antd";
+import { Input } from "antd";
+
+const { TextArea } = Input;
+
+const { Option } = Select;
 
 const { Step } = Steps;
 
@@ -23,16 +29,21 @@ const amountMarks = {
   },
 };
 
+const typeMarks = {
+  0: "One time purchase",
+  1: "Subscription (monthly)",
+};
+
 const timeMarks = {
-  standard: "standard",
-  fast: "fast",
-  instant: "instant",
+  2: "Standard",
+  1: "Fast",
+  0: "Instant",
 };
 
 export const Merchant = ({ name, signer, provider, address, blockExplorer }) => {
   const [tokens, setTokens] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
-  const [options, setOptions] = useState({});
+  const [params, setParams] = useState({ speed: 2, amount: 1, coins: [], purpose: "", type: 0 });
   const [deployedAddress, setDeployedAddress] = useState();
   const contracts = useContractLoader(provider);
 
@@ -62,7 +73,7 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
     let factory = new ethers.ContractFactory(abi, bytecode, signer);
 
     // Notice we pass in "Hello World" as the parameter to the constructor
-    let contract = await factory.deploy(0, 0, "", "");
+    let contract = await factory.deploy([params.amount, params.speed, params.coins.join(","), params.purpose]);
 
     // The address the Contract WILL have once mined
     // See: https://ropsten.etherscan.io/address/0x2bd9aaa2953f988153c8629926d22a6a5f69b14e
@@ -76,8 +87,59 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
       case 0:
         return (
           <div>
-            <Slider marks={amountMarks} step={10} defaultValue={0} />
-            <Slider marks={timeMarks} step={10} defaultValue={37} />
+            <TextArea
+              showCount
+              rows={4}
+              placeholder="Payment purpose"
+              value={params.purpose}
+              onChange={e => {
+                const newParams = { ...params, purpose: e.target.value };
+                console.log("new", newParams);
+                setParams(newParams);
+              }}
+            />
+            <br />
+            <Select
+              defaultValue={typeMarks[params.type]}
+              style={{ width: 120 }}
+              onChange={type => setParams({ ...params, type })}
+            >
+              {Object.keys(typeMarks).map((x, i) => {
+                return (
+                  <Option key={x} value={x}>
+                    {typeMarks[x]}
+                  </Option>
+                );
+              })}
+            </Select>
+            <Select
+              defaultValue={timeMarks[params.speed]}
+              style={{ width: 120 }}
+              onChange={speed => setParams({ ...params, speed })}
+            >
+              {Object.keys(timeMarks).map((x, i) => {
+                return (
+                  <Option key={x} value={x}>
+                    {timeMarks[x]}
+                  </Option>
+                );
+              })}
+            </Select>
+            <br />
+            <hr />
+            <Select
+              mode="multiple"
+              allowClear
+              style={{ width: "100%" }}
+              placeholder="Select allowed currencies"
+              defaultValue={params.coins}
+              onChange={coins => setParams({ ...params, coins })}
+            >
+              {tokens.map(t => {
+                return <Option key={t.symbol}>{t.symbol}</Option>;
+              })}
+            </Select>
+
             {/* <Slider marks={coinMarks} step={10} defaultValue={37} /> */}
           </div>
         );
