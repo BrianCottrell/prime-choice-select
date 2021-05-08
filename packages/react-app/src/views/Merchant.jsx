@@ -9,6 +9,7 @@ import { ethers } from "ethers";
 import { Select } from "antd";
 import { Input } from "antd";
 import { DollarOutlined } from "@ant-design/icons";
+import { TARGET_NETWORK_NAME } from "../constants";
 
 const { TextArea } = Input;
 
@@ -41,6 +42,12 @@ const timeMarks = {
   1: "Fast",
   0: "Instant",
 };
+
+// https://github.com/tellor-io/sampleUsingTellor#addresses
+const tellorAddress =
+  TARGET_NETWORK_NAME === "ropsten"
+    ? "0x20374E579832859f180536A69093A126Db1c8aE9"
+    : "0x20374E579832859f180536A69093A126Db1c8aE9";
 
 export const Merchant = ({ name, signer, provider, address, blockExplorer }) => {
   const [tokens, setTokens] = useState([]);
@@ -103,10 +110,11 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
             <br />
             <Input
               prefix={
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png" />
+                "Ether"
+                // <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png" />
               }
               size="large"
-              placeholder="Amount in Ether"
+              placeholder="XXX Eth"
               value={params.amount}
               onChange={e => setParams({ ...params, amount: e.target.value })}
             />
