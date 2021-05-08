@@ -11,19 +11,19 @@ contract PaymentContract {
   uint256 public price = 0;
   uint256 public maxResolutionTime = 0;
   string public supportedTokens;
-  string public description;
+  string public purpose;
   address public owner = 0xe5050eC33578Cb72554B696e6721369B660F3C72;
 
   event SetPrice(address sender, uint256 price);
   event SetMaxResolutionTime(address sender, uint256 maxResolutionTime);
   event SetSupportedTokens(address sender, string supportedTokens);
-  event SetDescription(address sender, string description);
+  event SetPurpose(address sender, string purpose);
 
-  constructor(uint256 _price, uint256 _maxResolutionTime, string memory _supportedTokens, string memory _description) public {
+  constructor(uint256 _price, uint256 _maxResolutionTime, string memory _supportedTokens, string memory _purpose) public {
     price = _price;
     maxResolutionTime = _maxResolutionTime;
     supportedTokens = _supportedTokens;
-    description = _description;
+    purpose = _purpose;
   }
 
   function setPrice(uint256 _price) public {
@@ -41,9 +41,8 @@ contract PaymentContract {
     emit SetSupportedTokens(msg.sender, supportedTokens);
   }
 
-  function setDescription(string memory _description) public {
-    description = _description;
-    emit SetDescription(msg.sender, description);
+  function setPurpose(string memory _description) public {
+    purpose = _purpose;
+    emit SetPurpose(msg.sender, purpose);
   }
 }
-
