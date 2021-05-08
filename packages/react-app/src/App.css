@@ -7,3 +7,19 @@
   width: 64px;
   margin: 5px;
 }
+
+.content {
+  padding: 25px;
+}
+.error-text {
+  color: red;
+  font-style: italic;
+}
+
+.ant-layout-sider,
+.ant-layout-header,
+.ant-layout-footer,
+.ant-layout,
+.site-layout-background {
+  background: #fff !important;
+}

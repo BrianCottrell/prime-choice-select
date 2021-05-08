@@ -26,6 +26,8 @@ import { useThemeSwitcher } from "react-css-theme-switcher";
 import { INFURA_ID, DAI_ADDRESS, DAI_ABI, NETWORK, NETWORKS, APP_NAME } from "./constants";
 import { Tokens } from "./views/Tokens";
 import { Merchant } from "./views/Merchant";
+import logo from "./assets/logo.png";
+import { Payer } from "./views/Payer";
 
 String.prototype.capitalize = function () {
   return this.charAt(0).toUpperCase() + this.slice(1);
@@ -329,42 +331,7 @@ function App(props) {
         </Menu>
 
         <Switch>
-          <Route exact path={["/", "/home"]}>
-            {/*
-                🎛 this scaffolding is full of commonly used components
-                this <Contract/> component will automatically parse your ABI
-                and give you a form to interact with it locally
-            */}
-
-            <Contract
-              name={"PaymentContract"}
-              signer={userProvider.getSigner()}
-              provider={localProvider}
-              address={address}
-              blockExplorer={blockExplorer}
-            />
-
-            {/* uncomment for a second contract:
-            <Contract
-              name="SecondContract"
-              signer={userProvider.getSigner()}
-              provider={localProvider}
-              address={address}
-              blockExplorer={blockExplorer}
-            />
-            */}
-
-            {/* Uncomment to display and interact with an external contract (DAI on mainnet):
-            <Contract
-              name="DAI"
-              customContract={mainnetDAIContract}
-              signer={userProvider.getSigner()}
-              provider={mainnetProvider}
-              address={address}
-              blockExplorer={blockExplorer}
-            />
-            */}
-          </Route>
+          <Route exact path={["/", "/home"]}></Route>
           <Route path="/tokens">
             <Tokens
               address={address}
@@ -383,20 +350,34 @@ function App(props) {
           </Route>
           <Route path="/about">
             <div style={{ margin: "auto", width: "70vw" }}>
-              A blockchain application that helps automatically select the best blockchain to facilitate a given
-              transaction based on the requirements of the payment. Allow merchants to retain more revenue for
-              themselves by optimizing for transaction cost. As a story, I tried to withdraw $10 in ethereum last week
-              and there was going to be a $7 gas fee charge to do so. This isn’t sustainable for small businesses and at
-              scale, so we wanted to make a solution (as a smart contract) that could help merchants invoice for
-              different purchases and enable the buyer to select the token that offers the best transaction value. We’re
-              an aggregator of layer 2 protocols and we consult all the different providers to determine in real time
-              which network is the cheapest to facilitate a transaction. Aggregate remaining layer 2 protocols (API's)
-              and consult these different providers to determine in real time which network is the cheapest to
-              facilitate a transaction. Finish UI that enables the payer to determine which protocol they would like to
-              use. Add smart contract that is used by two separate parties: 1) Merchant or invoicer 2) Payer contract
-              method and submitting the payment based on the optimal transaction protocol determined via the UI. We use
-              Cairo to prove that a given protocol is the best for a transaction given the information provided from the
-              layer 2 protocol aggregators.
+              <img src={logo} />
+              <p>
+                Primechoice Select is a blockchain application that helps automatically select the best blockchain to
+                facilitate a given transaction based on the requirements of the payment. Allow merchants to retain more
+                revenue for themselves by optimizing for transaction cost. As a story, I tried to withdraw $10 in
+                ethereum last week and there was going to be a $7 gas fee charge to do so. This isn’t sustainable for
+                small businesses and at scale, so we wanted to make a solution (as a smart contract) that could help
+                merchants invoice for different purchases and enable the buyer to select the token that offers the best
+                transaction value. We’re an aggregator of layer 2 protocols and we consult all the different providers
+                to determine in real time which network is the cheapest to facilitate a transaction.
+              </p>
+
+              <p>
+                We use Cairo to prove that a given protocol is the best for a transaction given the information provided
+                from the layer 2 protocol aggregators.
+              </p>
+
+              <h5>Not ready to send an invoice yet? Try out the test invoice creator below!</h5>
+              <br />
+
+              <h1>Payment Playground</h1>
+              <Contract
+                name={"PaymentContract"}
+                signer={userProvider.getSigner()}
+                provider={localProvider}
+                address={address}
+                blockExplorer={blockExplorer}
+              />
             </div>
           </Route>
           <Route path="/exampleui">
@@ -414,33 +395,27 @@ function App(props) {
               setPurposeEvents={setPurposeEvents}
             />
           </Route>
-          <Route path="/merchant">
+          <Route path="/request">
             <div style={{ margin: "auto", width: "70vw" }}>
-              <Merchant />
+              <Merchant
+                name={"PaymentContract"}
+                signer={userProvider.getSigner()}
+                provider={localProvider}
+                address={address}
+                blockExplorer={blockExplorer}
+              />
             </div>
           </Route>
-          <Route path="/buyers">
+          <Route path="/send">
             <div style={{ margin: "auto", width: "70vw" }}>
-              <Tokens />
+              <Payer
+                name={"PaymentContract"}
+                signer={userProvider.getSigner()}
+                provider={localProvider}
+                address={address}
+                blockExplorer={blockExplorer}
+              />
             </div>
-          </Route>
-          <Route path="/mainnetdai">
-            <Contract
-              name="DAI"
-              customContract={mainnetDAIContract}
-              signer={userProvider.getSigner()}
-              provider={mainnetProvider}
-              address={address}
-              blockExplorer={"https://etherscan.io/"}
-            />
-          </Route>
-          <Route path="/subgraph">
-            <Subgraph
-              subgraphUri={props.subgraphUri}
-              tx={tx}
-              writeContracts={writeContracts}
-              mainnetProvider={mainnetProvider}
-            />
           </Route>
         </Switch>
       </BrowserRouter>

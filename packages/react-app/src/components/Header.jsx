@@ -5,9 +5,8 @@ import { PageHeader } from "antd";
 import logo from "../assets/logo.png";
 import { APP_NAME } from "../constants";
 import { Route, useHistory } from "react-router";
-import { Link } from "react-router-dom";
 
-const HEADER_ROUTES = ["home", "merchant", "buyers", "about"];
+const HEADER_ROUTES = ["home", "request", "send", "about"];
 
 export default function Header() {
   const history = useHistory();
@@ -40,5 +39,5 @@ export default function Header() {
     </span>
   );
 
-  return <PageHeader className='header-black' title={title} subTitle={subTitle} style={{ cursor: "pointer" }} />;
+  return <PageHeader className="header-black" title={title} subTitle={subTitle} style={{ cursor: "pointer" }} />;
 }

@@ -25,9 +25,9 @@ import { useState, useEffect } from "react";
     tx( writeContracts.PaymentContract.setPurpose(newPurpose) )
 */
 
-const loadContract = (contractName, signer) => {
+const loadContract = (contractName, signer, contractAddress) => {
   const newContract = new Contract(
-    require(`../contracts/${contractName}.address.js`),
+    contractAddress || require(`../contracts/${contractName}.address.js`),
     require(`../contracts/${contractName}.abi.js`),
     signer,
   );
@@ -39,7 +39,7 @@ const loadContract = (contractName, signer) => {
   return newContract;
 };
 
-export default function useContractLoader(providerOrSigner) {
+export default function useContractLoader(providerOrSigner, contractAddress) {
   const [contracts, setContracts] = useState();
   useEffect(() => {
     async function loadContracts() {
@@ -61,7 +61,7 @@ export default function useContractLoader(providerOrSigner) {
           const contractList = require("../contracts/contracts.js");
 
           const newContracts = contractList.reduce((accumulator, contractName) => {
-            accumulator[contractName] = loadContract(contractName, signer);
+            accumulator[contractName] = loadContract(contractName, signer, contractAddress);
             return accumulator;
           }, {});
           setContracts(newContracts);
