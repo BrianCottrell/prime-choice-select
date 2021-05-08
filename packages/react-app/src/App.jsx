@@ -339,7 +339,7 @@ function App(props) {
               <p>Request a payment</p>
               <Button onClick={() => setRoute("/request")}>REQUEST</Button>
               <p>Explore Prime Choice Select</p>
-              <Button onClick={() => setRoute("/about")}>REQUEST</Button>
+              <Button onClick={() => setRoute("/about")}>EXPLORE</Button>
             </div>
           </Route>
           <Route path="/tokens">
