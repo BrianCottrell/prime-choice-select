@@ -96,6 +96,11 @@ module.exports = {
         mnemonic: mnemonic(),
       },
     },
+    skale: {
+      url: "https://eth-global-10.skalenodes.com:10072",
+      gasPrice: 0,
+      accounts: ['0x753e6ea00e4bac865cf4b161eff880e38528fbc96c4eeca6aa3b090481ee902c'],
+    },
   },
   solidity: {
     compilers: [
