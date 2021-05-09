@@ -20,7 +20,7 @@ export const CompletePayment = ({ paymentData, name, signer, provider, address, 
     // if (!syncProvider) {
     //   alert("initZk called without sync provider initialized");
     // }
-    const w = await zksync.Wallet.fromEthSigner(signer, syncProvider);
+    const w = await zksync.Wallet.fromEthSigner(signer, s);
 
     setSyncWallet(w);
 
