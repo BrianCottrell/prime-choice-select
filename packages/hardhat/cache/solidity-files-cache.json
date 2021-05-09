@@ -36,8 +36,8 @@
       ]
     },
     "/Users/chrisbuonocore/personal/hackathons/ethglobal21/packages/hardhat/contracts/PaymentContract.sol": {
-      "lastModificationDate": 1620563331511,
-      "contentHash": "751f99b178413a81f6f821ec64a35792",
+      "lastModificationDate": 1620583185016,
+      "contentHash": "9db101fdcc2161c8f6a0aa06bbb854fd",
       "sourceName": "contracts/PaymentContract.sol",
       "solcConfig": {
         "version": "0.6.7",

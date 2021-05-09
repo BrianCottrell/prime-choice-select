@@ -10,12 +10,12 @@ A blockchain application that helps automatically select the best blockchain to 
 
 ### Sponsors
 
-- Chainlink
-- Tellor
-- Skale
-- Torus
-- Starkware (Cairo)
-- ZkSync
+- Chainlink: Performs price comparison against Layer1 currencies
+- Tellor: Performs price comparison against Layer1 currencies
+- Skale: Enables private networks for deploying invoices and collecting payments.
+- Torus: Can use metamask (and/or Torus based authentication via email) to authenticate to Layer 1 contracts, and layer 2 ZkSync API service.
+- Starkware (Cairo) - Program that validates the best token selection based on speed and fee criteria.
+- ZkSync - Fetches supported tokens, performs quote estimates for different currencies supported by the vendor, performs the transaction against Layer2 network using the protocol of choice.
 
 <!--
 https://github.com/austintgriffith/scaffold-eth#%EF%B8%8F-quick-start
