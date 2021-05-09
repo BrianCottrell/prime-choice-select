@@ -55,3 +55,12 @@ If successful Primechoice Select should now be ready and available on `localhost
 7. Show token options and previewing contract.
 8. Submit payment / discuss recurring payments and low per-transaction cost. Stripe for example takes a flat fee of every transaction which can already exceed that of a single layer 2 withdrawl if subscription payments batched strategically.
 9. Stackware/Cairo verification of optimal contract (show input and request parameters, their definitions, and proof of best output).
+
+### Screenshots
+
+<p>Contract</p>
+<img src="./img/contract.png" width=600/>
+<p>Payer screen</p>
+<img src="./img/payer.png" width=600/>
+<p>Optimal proof via Cairo</p>
+<img src="./img/cairo.png" width=600/>
