@@ -58,9 +58,15 @@ If successful Primechoice Select should now be ready and available on `localhost
 
 ### Screenshots
 
+<p>Home</p>
+<img src="./img/home.png" width=600/>
 <p>Contract</p>
 <img src="./img/contract.png" width=600/>
 <p>Payer screen</p>
 <img src="./img/payer.png" width=600/>
-<p>Optimal proof via Cairo</p>
+<p>Cairo: Deploying optimal proof via Cairo</p>
 <img src="./img/cairo.png" width=600/>
+<p>Torus: Log in with Torus</p>
+<img src="./img/torus.png" width=600/>
+<p>SKALE: Deploying to a private network</p>
+<img src="./img/skale.png" width=600/>
