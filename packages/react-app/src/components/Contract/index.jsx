@@ -52,6 +52,7 @@ export default function Contract({
   name,
   show,
   price,
+  onUpdate,
   blockExplorer,
   readOnly = false,
 }) {
@@ -82,6 +83,7 @@ export default function Contract({
       // If there are no inputs, just display return value
       return (
         <DisplayVariable
+          onUpdate={onUpdate}
           key={fn.name}
           contractFunction={contract[fn.name]}
           functionInfo={fn}

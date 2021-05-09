@@ -28,6 +28,7 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
   const [currentStep, setCurrentStep] = useState(2);
   const [options, setOptions] = useState({});
   const [showModal, setShowModal] = React.useState(false);
+  const [paymentData, setPaymentData] = useState({});
 
   const urlParams = new URLSearchParams(window.location.search);
   const [contractAddress, setContractAddress] = useState(urlParams.get("payment", ""));
@@ -36,9 +37,9 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
 
   const getTokens = async () => {
     try {
-      const { data } = await getZksTokens();
-      console.log("result", data);
-      setTokens(data.data);
+      const result = await getZksTokens();
+      console.log("result", result.data);
+      setTokens(result.data.data);
     } catch (e) {
       console.error("err", e);
     }
@@ -61,8 +62,14 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
     updateAddress();
   }, [contractAddress]);
 
+  const onUpdate = (k, v) => {
+    // console.log("onUpdate", paymentData, k, v);
+    paymentData[k] = v;
+    setPaymentData({ ...paymentData });
+  };
+
   const adjustStep = offset => {
-    if (error) {
+    if (error && currentStep === 0) {
       return;
     }
     setCurrentStep(currentStep + offset);
@@ -85,8 +92,10 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
         return (
           // 0x9eae40784a2dEE295c32D4Bdc74C4175132B7573
           <div>
+            <p>The below is a preview of the contract to be paid. If correct, click next to proceed to payment.</p>
             <Contract
               readOnly
+              onUpdate={onUpdate}
               customContract={deployedContract}
               name={"PaymentContract"}
               signer={signer}
@@ -99,7 +108,13 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
       case 2:
         return (
           <div>
-            <CompletePayment signer={signer} provider={provider} address={address} blockExplorer={blockExplorer} />
+            <CompletePayment
+              paymentData={paymentData}
+              signer={signer}
+              provider={provider}
+              address={address}
+              blockExplorer={blockExplorer}
+            />
           </div>
         );
     }
@@ -117,7 +132,7 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
           <br />
           <Steps direction="vertical" current={currentStep}>
             <Step title="Enter Address" description="Enter your invoice contract address" />
-            <Step title="Select Token" description="Select optimal token" />
+            <Step title="Preview Contract" description="Confirm contract details" />
             <Step title="Payment" description="Use suggested token to pay" />
           </Steps>
         </Sider>

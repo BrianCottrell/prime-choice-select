@@ -8,28 +8,12 @@ import { useContractLoader } from "../hooks";
 import { ethers } from "ethers";
 import { Select } from "antd";
 import { Input } from "antd";
-import { DollarOutlined } from "@ant-design/icons";
-import { TARGET_NETWORK_NAME } from "../constants";
+import { TARGET_NETWORK_NAME, TELLOR_ADDRESS } from "../constants";
 
 const { TextArea } = Input;
-
 const { Option } = Select;
-
 const { Step } = Steps;
-
 const { Header, Footer, Sider, Content } = Layout;
-
-const amountMarks = {
-  0: "0°C",
-  26: "26°C",
-  37: "37°C",
-  100: {
-    style: {
-      color: "#f50",
-    },
-    label: <strong>100°C</strong>,
-  },
-};
 
 const typeMarks = {
   0: "One time purchase",
@@ -42,12 +26,6 @@ const timeMarks = {
   1: "Fast",
   0: "Instant",
 };
-
-// https://github.com/tellor-io/sampleUsingTellor#addresses
-const tellorAddress =
-  TARGET_NETWORK_NAME === "ropsten"
-    ? "0x20374E579832859f180536A69093A126Db1c8aE9"
-    : "0x20374E579832859f180536A69093A126Db1c8aE9";
 
 export const Merchant = ({ name, signer, provider, address, blockExplorer }) => {
   const [tokens, setTokens] = useState([]);
@@ -83,7 +61,7 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
 
     const amount = parseInt(params.amount);
 
-    let contract = await factory.deploy(amount, params.speed, params.coins.join(","), params.purpose);
+    let contract = await factory.deploy(amount, params.speed, params.coins.join(","), params.purpose, TELLOR_ADDRESS);
 
     console.log("address", contract.address);
     setDeployedAddress(contract.address);
@@ -109,10 +87,7 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
             />
             <br />
             <Input
-              prefix={
-                "Ether"
-                // <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png" />
-              }
+              suffix={"Ether"}
               size="large"
               placeholder="XXX Eth"
               value={params.amount}
@@ -122,7 +97,7 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
             <p>Payment details:</p>
             <Select
               defaultValue={typeMarks[params.type]}
-              style={{ width: 120 }}
+              style={{ width: 240 }}
               onChange={type => setParams({ ...params, type })}
             >
               {Object.keys(typeMarks).map((x, i) => {

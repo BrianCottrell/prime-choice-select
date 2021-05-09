@@ -7,3 +7,4 @@ export const deposit = (syncWallet, ethAmountString) => {
     amount: ethers.utils.parseEther(ethAmountString),
   });
 };
+

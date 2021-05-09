@@ -376,6 +376,12 @@ export const NETWORKS = {
 };
 export const TARGET_NETWORK_NAME = "ropsten";
 
+// https://github.com/tellor-io/sampleUsingTellor#addresses
+export const TELLOR_ADDRESS =
+  TARGET_NETWORK_NAME === "ropsten"
+    ? "0x20374E579832859f180536A69093A126Db1c8aE9"
+    : "0x20374E579832859f180536A69093A126Db1c8aE9";
+
 export const APP_NAME = "Primechoice Select";
 export const APP_DESCRIPTION = "A blockchain aggregator to help you the cheapest network";
 

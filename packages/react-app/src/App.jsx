@@ -233,7 +233,7 @@ function App(props) {
 
   const [route, setRoute] = useState();
   useEffect(() => {
-    const loc = window.location.pathname;
+    const loc = window.location.href;
     setRoute(loc);
   }, [setRoute]);
 

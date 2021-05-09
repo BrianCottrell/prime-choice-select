@@ -5,7 +5,7 @@
     ],
     "data": [
         1226245742482522112,
-        254,
+        283,
         74168662805676031,
         0,
         4612671182993129469,
@@ -258,33 +258,62 @@
         2345108766317314046,
         5200109446503366656,
         2345108766317314046,
+        146226256843603964,
+        5,
+        5191102234363920384,
+        5191102247248822272,
+        2345108766317314046,
+        5198983563776393216,
+        3618502788666131213697322783095070105623107215331596699973092056135872020480,
+        145944781866893311,
+        5,
+        5191102234363920384,
+        5191102238658887680,
+        2345108766317314046,
+        5191102234363920384,
+        5198983563776327680,
+        3,
+        5198983563776393216,
+        3618502788666131213697322783095070105623107215331596699973092056135872020480,
+        5191102247248822272,
+        1226245742482522112,
+        3618502788666131213697322783095070105623107215331596699973092056135872020463,
+        5188287514661584896,
+        5188850464614875136,
+        5193354042767540224,
+        5193354047062507520,
+        5193354047062507520,
+        1226245742482522112,
+        3618502788666131213697322783095070105623107215331596699973092056135872020259,
+        5191102247248822272,
+        2345108766317314046,
         290341444919459839,
         3,
         1226245742482522112,
-        3618502788666131213697322783095070105623107215331596699973092056135872020259,
+        3618502788666131213697322783095070105623107215331596699973092056135872020230,
         5191102242953854976,
         5191102264428691456,
         1226245742482522112,
-        3618502788666131213697322783095070105623107215331596699973092056135872020225,
+        3618502788666131213697322783095070105623107215331596699973092056135872020196,
         5191102247248822272,
         5191102264428691456,
         5191102260133724160,
         1226245742482522112,
-        3618502788666131213697322783095070105623107215331596699973092056135872020273,
+        3618502788666131213697322783095070105623107215331596699973092056135872020244,
         5193353969753096192,
         5191102264428691456,
         1226245742482522112,
-        3618502788666131213697322783095070105623107215331596699973092056135872020464,
+        3618502788666131213697322783095070105623107215331596699973092056135872020435,
         5193353969753096192,
         5188287510366552064,
         1226245742482522112,
-        3618502788666131213697322783095070105623107215331596699973092056135872020212,
+        3618502788666131213697322783095070105623107215331596699973092056135872020183,
         5188287514661257216,
         1226245742482522112,
-        3618502788666131213697322783095070105623107215331596699973092056135872020209,
+        3618502788666131213697322783095070105623107215331596699973092056135872020180,
         5188287518955962368,
         1226245742482522112,
-        3618502788666131213697322783095070105623107215331596699973092056135872020206,
+        3618502788666131213697322783095070105623107215331596699973092056135872020177,
         5193353978343030784,
         2345108766317314046
     ],
@@ -7440,7 +7469,7 @@
             "254": {
                 "accessible_scopes": [
                     "__main__",
-                    "__main__.main"
+                    "__main__.find_best_token"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
@@ -7448,8 +7477,870 @@
                         "offset": 0
                     },
                     "reference_ids": {
-                        "__main__.main.output_ptr": 144,
-                        "__main__.main.range_check_ptr": 145
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 7,
+                    "end_line": 23,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "start_col": 5,
+                    "start_line": 23
+                }
+            },
+            "256": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 0
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 37,
+                    "end_line": 22,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "parent_location": [
+                        {
+                            "end_col": 37,
+                            "end_line": 22,
+                            "input_file": {
+                                "filename": "primechoice.cairo"
+                            },
+                            "parent_location": [
+                                {
+                                    "end_col": 34,
+                                    "end_line": 25,
+                                    "input_file": {
+                                        "filename": "primechoice.cairo"
+                                    },
+                                    "start_col": 9,
+                                    "start_line": 25
+                                },
+                                "While trying to retrieve the implicit argument 'range_check_ptr' in:"
+                            ],
+                            "start_col": 22,
+                            "start_line": 22
+                        },
+                        "While expanding the reference 'range_check_ptr' in:"
+                    ],
+                    "start_col": 22,
+                    "start_line": 22
+                }
+            },
+            "257": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 1
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 85,
+                    "end_line": 22,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "parent_location": [
+                        {
+                            "end_col": 33,
+                            "end_line": 25,
+                            "input_file": {
+                                "filename": "primechoice.cairo"
+                            },
+                            "start_col": 23,
+                            "start_line": 25
+                        },
+                        "While expanding the reference 'best_token' in:"
+                    ],
+                    "start_col": 66,
+                    "start_line": 22
+                }
+            },
+            "258": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 2
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 34,
+                    "end_line": 25,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "start_col": 9,
+                    "start_line": 25
+                }
+            },
+            "259": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 0
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 18,
+                    "end_line": 27,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "start_col": 12,
+                    "start_line": 27
+                }
+            },
+            "261": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 1
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 11,
+                    "end_line": 27,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "start_col": 9,
+                    "start_line": 27
+                }
+            },
+            "263": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 1
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 37,
+                    "end_line": 22,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "parent_location": [
+                        {
+                            "end_col": 37,
+                            "end_line": 22,
+                            "input_file": {
+                                "filename": "primechoice.cairo"
+                            },
+                            "parent_location": [
+                                {
+                                    "end_col": 36,
+                                    "end_line": 28,
+                                    "input_file": {
+                                        "filename": "primechoice.cairo"
+                                    },
+                                    "start_col": 13,
+                                    "start_line": 28
+                                },
+                                "While trying to retrieve the implicit argument 'range_check_ptr' in:"
+                            ],
+                            "start_col": 22,
+                            "start_line": 22
+                        },
+                        "While expanding the reference 'range_check_ptr' in:"
+                    ],
+                    "start_col": 22,
+                    "start_line": 22
+                }
+            },
+            "264": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 2
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 54,
+                    "end_line": 22,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "parent_location": [
+                        {
+                            "end_col": 33,
+                            "end_line": 28,
+                            "input_file": {
+                                "filename": "primechoice.cairo"
+                            },
+                            "start_col": 27,
+                            "start_line": 28
+                        },
+                        "While expanding the reference 'tokens' in:"
+                    ],
+                    "start_col": 39,
+                    "start_line": 22
+                }
+            },
+            "265": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 3
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 36,
+                    "end_line": 28,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "start_col": 13,
+                    "start_line": 28
+                }
+            },
+            "266": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 1
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 37,
+                    "end_line": 22,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "parent_location": [
+                        {
+                            "end_col": 37,
+                            "end_line": 22,
+                            "input_file": {
+                                "filename": "primechoice.cairo"
+                            },
+                            "parent_location": [
+                                {
+                                    "end_col": 83,
+                                    "end_line": 33,
+                                    "input_file": {
+                                        "filename": "primechoice.cairo"
+                                    },
+                                    "start_col": 19,
+                                    "start_line": 33
+                                },
+                                "While trying to retrieve the implicit argument 'range_check_ptr' in:"
+                            ],
+                            "start_col": 22,
+                            "start_line": 22
+                        },
+                        "While expanding the reference 'range_check_ptr' in:"
+                    ],
+                    "start_col": 22,
+                    "start_line": 22
+                }
+            },
+            "267": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 2
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 39,
+                    "end_line": 32,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "parent_location": [
+                        {
+                            "end_col": 52,
+                            "end_line": 33,
+                            "input_file": {
+                                "filename": "primechoice.cairo"
+                            },
+                            "start_col": 42,
+                            "start_line": 33
+                        },
+                        "While expanding the reference 'next_token' in:"
+                    ],
+                    "start_col": 22,
+                    "start_line": 32
+                }
+            },
+            "269": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 3
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 59,
+                    "end_line": 33,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "start_col": 56,
+                    "start_line": 33
+                }
+            },
+            "271": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 4
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 85,
+                    "end_line": 22,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "parent_location": [
+                        {
+                            "end_col": 82,
+                            "end_line": 33,
+                            "input_file": {
+                                "filename": "primechoice.cairo"
+                            },
+                            "start_col": 72,
+                            "start_line": 33
+                        },
+                        "While expanding the reference 'best_token' in:"
+                    ],
+                    "start_col": 66,
+                    "start_line": 22
+                }
+            },
+            "272": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 25,
+                        "offset": 5
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 147,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 83,
+                    "end_line": 33,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "start_col": 19,
+                    "start_line": 33
+                }
+            },
+            "274": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 26,
+                        "offset": 0
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.current_fee": 152,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 150,
+                        "__main__.find_best_token.token": 151,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 36,
+                    "end_line": 35,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "start_col": 5,
+                    "start_line": 35
+                }
+            },
+            "275": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 26,
+                        "offset": 1
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.current_fee": 152,
+                        "__main__.find_best_token.lowest_fee": 153,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 150,
+                        "__main__.find_best_token.token": 151,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 40,
+                    "end_line": 36,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "start_col": 5,
+                    "start_line": 36
+                }
+            },
+            "276": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 26,
+                        "offset": 2
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.current_fee": 152,
+                        "__main__.find_best_token.lowest_fee": 153,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 150,
+                        "__main__.find_best_token.token": 151,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 37,
+                    "end_line": 22,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "parent_location": [
+                        {
+                            "end_col": 83,
+                            "end_line": 33,
+                            "input_file": {
+                                "filename": "primechoice.cairo"
+                            },
+                            "parent_location": [
+                                {
+                                    "end_col": 31,
+                                    "end_line": 40,
+                                    "input_file": {
+                                        "filename": "/usr/local/lib/python3.9/site-packages/starkware/cairo/common/math.cairo"
+                                    },
+                                    "parent_location": [
+                                        {
+                                            "end_col": 43,
+                                            "end_line": 37,
+                                            "input_file": {
+                                                "filename": "primechoice.cairo"
+                                            },
+                                            "start_col": 5,
+                                            "start_line": 37
+                                        },
+                                        "While trying to retrieve the implicit argument 'range_check_ptr' in:"
+                                    ],
+                                    "start_col": 16,
+                                    "start_line": 40
+                                },
+                                "While expanding the reference 'range_check_ptr' in:"
+                            ],
+                            "start_col": 19,
+                            "start_line": 33
+                        },
+                        "While trying to update the implicit return value 'range_check_ptr' in:"
+                    ],
+                    "start_col": 22,
+                    "start_line": 22
+                }
+            },
+            "277": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 26,
+                        "offset": 3
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.current_fee": 152,
+                        "__main__.find_best_token.lowest_fee": 153,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 150,
+                        "__main__.find_best_token.token": 151,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 24,
+                    "end_line": 35,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "parent_location": [
+                        {
+                            "end_col": 28,
+                            "end_line": 37,
+                            "input_file": {
+                                "filename": "primechoice.cairo"
+                            },
+                            "start_col": 17,
+                            "start_line": 37
+                        },
+                        "While expanding the reference 'current_fee' in:"
+                    ],
+                    "start_col": 13,
+                    "start_line": 35
+                }
+            },
+            "278": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 26,
+                        "offset": 4
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.current_fee": 152,
+                        "__main__.find_best_token.lowest_fee": 153,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 150,
+                        "__main__.find_best_token.token": 151,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 23,
+                    "end_line": 36,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "parent_location": [
+                        {
+                            "end_col": 42,
+                            "end_line": 37,
+                            "input_file": {
+                                "filename": "primechoice.cairo"
+                            },
+                            "start_col": 32,
+                            "start_line": 37
+                        },
+                        "While expanding the reference 'lowest_fee' in:"
+                    ],
+                    "start_col": 13,
+                    "start_line": 36
+                }
+            },
+            "279": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 26,
+                        "offset": 5
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.current_fee": 152,
+                        "__main__.find_best_token.lowest_fee": 153,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 150,
+                        "__main__.find_best_token.token": 151,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 43,
+                    "end_line": 37,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "start_col": 5,
+                    "start_line": 37
+                }
+            },
+            "281": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 26,
+                        "offset": 17
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.current_fee": 152,
+                        "__main__.find_best_token.lowest_fee": 153,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 154,
+                        "__main__.find_best_token.token": 151,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 85,
+                    "end_line": 22,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "parent_location": [
+                        {
+                            "end_col": 29,
+                            "end_line": 39,
+                            "input_file": {
+                                "filename": "primechoice.cairo"
+                            },
+                            "start_col": 19,
+                            "start_line": 39
+                        },
+                        "While expanding the reference 'best_token' in:"
+                    ],
+                    "start_col": 66,
+                    "start_line": 22
+                }
+            },
+            "282": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.find_best_token"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 26,
+                        "offset": 18
+                    },
+                    "reference_ids": {
+                        "__main__.find_best_token.__temp26": 148,
+                        "__main__.find_best_token.best_token": 146,
+                        "__main__.find_best_token.current_fee": 152,
+                        "__main__.find_best_token.lowest_fee": 153,
+                        "__main__.find_best_token.n": 145,
+                        "__main__.find_best_token.next_token": 149,
+                        "__main__.find_best_token.range_check_ptr": 154,
+                        "__main__.find_best_token.token": 151,
+                        "__main__.find_best_token.tokens": 144
+                    }
+                },
+                "hint": null,
+                "inst": {
+                    "end_col": 30,
+                    "end_line": 39,
+                    "input_file": {
+                        "filename": "primechoice.cairo"
+                    },
+                    "start_col": 5,
+                    "start_line": 39
+                }
+            },
+            "283": {
+                "accessible_scopes": [
+                    "__main__",
+                    "__main__.main"
+                ],
+                "flow_tracking_data": {
+                    "ap_tracking": {
+                        "group": 27,
+                        "offset": 0
+                    },
+                    "reference_ids": {
+                        "__main__.main.output_ptr": 155,
+                        "__main__.main.range_check_ptr": 156
                     }
                 },
                 "hint": null,
@@ -7463,22 +8354,22 @@
                     "start_line": 43
                 }
             },
-            "256": {
+            "285": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 3
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 144,
-                        "__main__.main.range_check_ptr": 145
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 155,
+                        "__main__.main.range_check_ptr": 156
                     }
                 },
                 "hint": null,
@@ -7492,23 +8383,23 @@
                     "start_line": 48
                 }
             },
-            "258": {
+            "287": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 6
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 144,
-                        "__main__.main.range_check_ptr": 145,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 155,
+                        "__main__.main.range_check_ptr": 156,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": {
@@ -7557,23 +8448,23 @@
                     "start_line": 42
                 }
             },
-            "259": {
+            "288": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 7
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 144,
-                        "__main__.main.range_check_ptr": 145,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 155,
+                        "__main__.main.range_check_ptr": 156,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -7599,23 +8490,23 @@
                     "start_line": 46
                 }
             },
-            "260": {
+            "289": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 8
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 144,
-                        "__main__.main.range_check_ptr": 145,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 155,
+                        "__main__.main.range_check_ptr": 156,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -7629,23 +8520,23 @@
                     "start_line": 73
                 }
             },
-            "262": {
+            "291": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 11
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 150,
-                        "__main__.main.range_check_ptr": 145,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 161,
+                        "__main__.main.range_check_ptr": 156,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -7683,23 +8574,23 @@
                     "start_line": 42
                 }
             },
-            "263": {
+            "292": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 12
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 150,
-                        "__main__.main.range_check_ptr": 145,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 161,
+                        "__main__.main.range_check_ptr": 156,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -7725,23 +8616,23 @@
                     "start_line": 46
                 }
             },
-            "264": {
+            "293": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 13
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 150,
-                        "__main__.main.range_check_ptr": 145,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 161,
+                        "__main__.main.range_check_ptr": 156,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -7767,23 +8658,23 @@
                     "start_line": 45
                 }
             },
-            "265": {
+            "294": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 14
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 150,
-                        "__main__.main.range_check_ptr": 145,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 161,
+                        "__main__.main.range_check_ptr": 156,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -7797,23 +8688,23 @@
                     "start_line": 76
                 }
             },
-            "267": {
+            "296": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 26
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 150,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 161,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -7839,23 +8730,23 @@
                     "start_line": 48
                 }
             },
-            "268": {
+            "297": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 27
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 150,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 161,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -7881,23 +8772,23 @@
                     "start_line": 46
                 }
             },
-            "269": {
+            "298": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 28
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 150,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 161,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -7911,24 +8802,24 @@
                     "start_line": 78
                 }
             },
-            "271": {
+            "300": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 31
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 150,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.res": 152,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 161,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.res": 163,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -7978,24 +8869,24 @@
                     "start_line": 2
                 }
             },
-            "272": {
+            "301": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 32
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 150,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.res": 152,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 161,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.res": 163,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -8009,24 +8900,24 @@
                     "start_line": 81
                 }
             },
-            "273": {
+            "302": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 33
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 150,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.res": 152,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 161,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.res": 163,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -8040,24 +8931,24 @@
                     "start_line": 81
                 }
             },
-            "275": {
+            "304": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 36
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 153,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.res": 152,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 164,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.res": 163,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -8071,24 +8962,24 @@
                     "start_line": 82
                 }
             },
-            "276": {
+            "305": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 37
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 153,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.res": 152,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 164,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.res": 163,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -8102,24 +8993,24 @@
                     "start_line": 82
                 }
             },
-            "278": {
+            "307": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 40
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 154,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.res": 152,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 165,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.res": 163,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -8133,24 +9024,24 @@
                     "start_line": 83
                 }
             },
-            "279": {
+            "308": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 41
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 154,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.res": 152,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 165,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.res": 163,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -8164,24 +9055,24 @@
                     "start_line": 83
                 }
             },
-            "281": {
+            "310": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 44
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 155,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.res": 152,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 166,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.res": 163,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -8231,24 +9122,24 @@
                     "start_line": 40
                 }
             },
-            "282": {
+            "311": {
                 "accessible_scopes": [
                     "__main__",
                     "__main__.main"
                 ],
                 "flow_tracking_data": {
                     "ap_tracking": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 45
                     },
                     "reference_ids": {
-                        "__main__.main.idx": 147,
-                        "__main__.main.min_speed": 148,
-                        "__main__.main.n": 146,
-                        "__main__.main.output_ptr": 155,
-                        "__main__.main.range_check_ptr": 151,
-                        "__main__.main.res": 152,
-                        "__main__.main.token_list": 149
+                        "__main__.main.idx": 158,
+                        "__main__.main.min_speed": 159,
+                        "__main__.main.n": 157,
+                        "__main__.main.output_ptr": 166,
+                        "__main__.main.range_check_ptr": 162,
+                        "__main__.main.res": 163,
+                        "__main__.main.token_list": 160
                     }
                 },
                 "hint": null,
@@ -8506,7 +9397,7 @@
                 }
             }
         },
-        "258": {
+        "287": {
             "accessible_scopes": [
                 "__main__",
                 "__main__.main"
@@ -8514,16 +9405,16 @@
             "code": "# The verifier doesn't care where those lists are\n# allocated or what values they contain, so we use a hint\n# to populate them.\ntokens = program_input['tokens']\nmin_speed = program_input['min_speed']\nids.min_speed = min_speed\n\n# https://www.cairo-lang.org/docs/hello_cairo/voting.html#processing-the-program-input\nids.n = len(tokens)\nmin_val = 'NaN'\nmin_index = -1\nfor i, val in enumerate(tokens):\n    base_addr = ids.token_list.address_ + ids.Token.SIZE * i\n    memory[base_addr + ids.Token.symbol] = int(val['symbol'], 16)\n    memory[base_addr + ids.Token.fee] = val['fee']\n    memory[base_addr + ids.Token.speed] = val['speed']\n    if (min_val == 'NaN' or val['fee'] < min_val) and val['speed'] >= min_speed:\n        min_val = val['fee']\n        min_index = i\nids.idx = min_index",
             "flow_tracking_data": {
                 "ap_tracking": {
-                    "group": 25,
+                    "group": 27,
                     "offset": 6
                 },
                 "reference_ids": {
-                    "__main__.main.idx": 147,
-                    "__main__.main.min_speed": 148,
-                    "__main__.main.n": 146,
-                    "__main__.main.output_ptr": 144,
-                    "__main__.main.range_check_ptr": 145,
-                    "__main__.main.token_list": 149
+                    "__main__.main.idx": 158,
+                    "__main__.main.min_speed": 159,
+                    "__main__.main.n": 157,
+                    "__main__.main.output_ptr": 155,
+                    "__main__.main.range_check_ptr": 156,
+                    "__main__.main.token_list": 160
                 }
             }
         }
@@ -8563,6 +9454,222 @@
         "__main__.assert_lt": {
             "destination": "starkware.cairo.common.math.assert_lt",
             "type": "alias"
+        },
+        "__main__.find_best_token": {
+            "pc": 254,
+            "type": "label"
+        },
+        "__main__.find_best_token.Args": {
+            "full_name": "__main__.find_best_token.Args",
+            "members": {
+                "best_token": {
+                    "cairo_type": "__main__.Token*",
+                    "offset": 2
+                },
+                "n": {
+                    "cairo_type": "felt",
+                    "offset": 1
+                },
+                "tokens": {
+                    "cairo_type": "__main__.Token*",
+                    "offset": 0
+                }
+            },
+            "size": 3,
+            "type": "struct"
+        },
+        "__main__.find_best_token.ImplicitArgs": {
+            "full_name": "__main__.find_best_token.ImplicitArgs",
+            "members": {
+                "range_check_ptr": {
+                    "cairo_type": "felt",
+                    "offset": 0
+                }
+            },
+            "size": 1,
+            "type": "struct"
+        },
+        "__main__.find_best_token.Return": {
+            "full_name": "__main__.find_best_token.Return",
+            "members": {
+                "token": {
+                    "cairo_type": "__main__.Token*",
+                    "offset": 0
+                }
+            },
+            "size": 1,
+            "type": "struct"
+        },
+        "__main__.find_best_token.SIZEOF_LOCALS": {
+            "type": "const",
+            "value": 0
+        },
+        "__main__.find_best_token.__temp26": {
+            "cairo_type": "felt",
+            "full_name": "__main__.find_best_token.__temp26",
+            "references": [
+                {
+                    "ap_tracking_data": {
+                        "group": 25,
+                        "offset": 0
+                    },
+                    "pc": 259,
+                    "value": "cast([ap], felt)"
+                }
+            ],
+            "type": "reference"
+        },
+        "__main__.find_best_token._anon_label14": {
+            "pc": 259,
+            "type": "label"
+        },
+        "__main__.find_best_token._anon_label15": {
+            "pc": 266,
+            "type": "label"
+        },
+        "__main__.find_best_token._anon_label16": {
+            "pc": 266,
+            "type": "label"
+        },
+        "__main__.find_best_token._anon_label17": {
+            "pc": 266,
+            "type": "label"
+        },
+        "__main__.find_best_token.best_token": {
+            "cairo_type": "__main__.Token*",
+            "full_name": "__main__.find_best_token.best_token",
+            "references": [
+                {
+                    "ap_tracking_data": {
+                        "group": 25,
+                        "offset": 0
+                    },
+                    "pc": 254,
+                    "value": "cast([fp + (-3)], __main__.Token*)"
+                }
+            ],
+            "type": "reference"
+        },
+        "__main__.find_best_token.current_fee": {
+            "cairo_type": "felt",
+            "full_name": "__main__.find_best_token.current_fee",
+            "references": [
+                {
+                    "ap_tracking_data": {
+                        "group": 26,
+                        "offset": 0
+                    },
+                    "pc": 274,
+                    "value": "cast([ap], felt)"
+                }
+            ],
+            "type": "reference"
+        },
+        "__main__.find_best_token.lowest_fee": {
+            "cairo_type": "felt",
+            "full_name": "__main__.find_best_token.lowest_fee",
+            "references": [
+                {
+                    "ap_tracking_data": {
+                        "group": 26,
+                        "offset": 1
+                    },
+                    "pc": 275,
+                    "value": "cast([ap], felt)"
+                }
+            ],
+            "type": "reference"
+        },
+        "__main__.find_best_token.n": {
+            "cairo_type": "felt",
+            "full_name": "__main__.find_best_token.n",
+            "references": [
+                {
+                    "ap_tracking_data": {
+                        "group": 25,
+                        "offset": 0
+                    },
+                    "pc": 254,
+                    "value": "cast([fp + (-4)], felt)"
+                }
+            ],
+            "type": "reference"
+        },
+        "__main__.find_best_token.next_token": {
+            "cairo_type": "__main__.Token*",
+            "full_name": "__main__.find_best_token.next_token",
+            "references": [
+                {
+                    "ap_tracking_data": {
+                        "group": 25,
+                        "offset": 1
+                    },
+                    "pc": 266,
+                    "value": "cast([fp + (-5)] + 3, __main__.Token*)"
+                }
+            ],
+            "type": "reference"
+        },
+        "__main__.find_best_token.range_check_ptr": {
+            "cairo_type": "felt",
+            "full_name": "__main__.find_best_token.range_check_ptr",
+            "references": [
+                {
+                    "ap_tracking_data": {
+                        "group": 25,
+                        "offset": 0
+                    },
+                    "pc": 254,
+                    "value": "cast([fp + (-6)], felt)"
+                },
+                {
+                    "ap_tracking_data": {
+                        "group": 26,
+                        "offset": 0
+                    },
+                    "pc": 274,
+                    "value": "cast([ap + (-2)], felt)"
+                },
+                {
+                    "ap_tracking_data": {
+                        "group": 26,
+                        "offset": 17
+                    },
+                    "pc": 281,
+                    "value": "cast([ap + (-1)], felt)"
+                }
+            ],
+            "type": "reference"
+        },
+        "__main__.find_best_token.token": {
+            "cairo_type": "__main__.Token*",
+            "full_name": "__main__.find_best_token.token",
+            "references": [
+                {
+                    "ap_tracking_data": {
+                        "group": 26,
+                        "offset": 0
+                    },
+                    "pc": 274,
+                    "value": "cast([ap + (-1)], __main__.Token*)"
+                }
+            ],
+            "type": "reference"
+        },
+        "__main__.find_best_token.tokens": {
+            "cairo_type": "__main__.Token*",
+            "full_name": "__main__.find_best_token.tokens",
+            "references": [
+                {
+                    "ap_tracking_data": {
+                        "group": 25,
+                        "offset": 0
+                    },
+                    "pc": 254,
+                    "value": "cast([fp + (-5)], __main__.Token*)"
+                }
+            ],
+            "type": "reference"
         },
         "__main__.get_at": {
             "pc": 252,
@@ -8635,7 +9742,7 @@
             "type": "reference"
         },
         "__main__.main": {
-            "pc": 254,
+            "pc": 283,
             "type": "label"
         },
         "__main__.main.Args": {
@@ -8675,10 +9782,10 @@
             "references": [
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 3
                     },
-                    "pc": 256,
+                    "pc": 285,
                     "value": "cast([fp + 1], felt)"
                 }
             ],
@@ -8690,10 +9797,10 @@
             "references": [
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 3
                     },
-                    "pc": 256,
+                    "pc": 285,
                     "value": "cast([fp + 2], felt)"
                 }
             ],
@@ -8705,10 +9812,10 @@
             "references": [
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 3
                     },
-                    "pc": 256,
+                    "pc": 285,
                     "value": "cast([fp], felt)"
                 }
             ],
@@ -8720,42 +9827,42 @@
             "references": [
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 0
                     },
-                    "pc": 254,
+                    "pc": 283,
                     "value": "cast([fp + (-4)], felt*)"
                 },
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 11
                     },
-                    "pc": 262,
+                    "pc": 291,
                     "value": "cast([ap + (-1)], felt*)"
                 },
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 36
                     },
-                    "pc": 275,
+                    "pc": 304,
                     "value": "cast([ap + (-1)], felt*)"
                 },
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 40
                     },
-                    "pc": 278,
+                    "pc": 307,
                     "value": "cast([ap + (-1)], felt*)"
                 },
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 44
                     },
-                    "pc": 281,
+                    "pc": 310,
                     "value": "cast([ap + (-1)], felt*)"
                 }
             ],
@@ -8767,18 +9874,18 @@
             "references": [
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 0
                     },
-                    "pc": 254,
+                    "pc": 283,
                     "value": "cast([fp + (-3)], felt)"
                 },
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 26
                     },
-                    "pc": 267,
+                    "pc": 296,
                     "value": "cast([ap + (-1)], felt)"
                 }
             ],
@@ -8790,10 +9897,10 @@
             "references": [
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 31
                     },
-                    "pc": 271,
+                    "pc": 300,
                     "value": "cast([ap + (-1)], __main__.Token*)"
                 }
             ],
@@ -8805,10 +9912,10 @@
             "references": [
                 {
                     "ap_tracking_data": {
-                        "group": 25,
+                        "group": 27,
                         "offset": 6
                     },
-                    "pc": 258,
+                    "pc": 287,
                     "value": "cast([ap + (-1)], __main__.Token*)"
                 }
             ],
@@ -12565,7 +13672,7 @@
                     "offset": 0
                 },
                 "pc": 254,
-                "value": "cast([fp + (-4)], felt*)"
+                "value": "cast([fp + (-5)], __main__.Token*)"
             },
             {
                 "ap_tracking_data": {
@@ -12573,86 +13680,174 @@
                     "offset": 0
                 },
                 "pc": 254,
-                "value": "cast([fp + (-3)], felt)"
+                "value": "cast([fp + (-4)], felt)"
             },
             {
                 "ap_tracking_data": {
                     "group": 25,
-                    "offset": 3
+                    "offset": 0
                 },
-                "pc": 256,
-                "value": "cast([fp], felt)"
+                "pc": 254,
+                "value": "cast([fp + (-3)], __main__.Token*)"
             },
             {
                 "ap_tracking_data": {
                     "group": 25,
-                    "offset": 3
+                    "offset": 0
                 },
-                "pc": 256,
-                "value": "cast([fp + 1], felt)"
+                "pc": 254,
+                "value": "cast([fp + (-6)], felt)"
             },
             {
                 "ap_tracking_data": {
                     "group": 25,
-                    "offset": 3
+                    "offset": 0
                 },
-                "pc": 256,
-                "value": "cast([fp + 2], felt)"
+                "pc": 259,
+                "value": "cast([ap], felt)"
             },
             {
                 "ap_tracking_data": {
                     "group": 25,
-                    "offset": 6
+                    "offset": 1
                 },
-                "pc": 258,
+                "pc": 266,
+                "value": "cast([fp + (-5)] + 3, __main__.Token*)"
+            },
+            {
+                "ap_tracking_data": {
+                    "group": 26,
+                    "offset": 0
+                },
+                "pc": 274,
+                "value": "cast([ap + (-2)], felt)"
+            },
+            {
+                "ap_tracking_data": {
+                    "group": 26,
+                    "offset": 0
+                },
+                "pc": 274,
                 "value": "cast([ap + (-1)], __main__.Token*)"
             },
             {
                 "ap_tracking_data": {
-                    "group": 25,
-                    "offset": 11
+                    "group": 26,
+                    "offset": 0
                 },
-                "pc": 262,
-                "value": "cast([ap + (-1)], felt*)"
+                "pc": 274,
+                "value": "cast([ap], felt)"
             },
             {
                 "ap_tracking_data": {
-                    "group": 25,
-                    "offset": 26
+                    "group": 26,
+                    "offset": 1
                 },
-                "pc": 267,
+                "pc": 275,
+                "value": "cast([ap], felt)"
+            },
+            {
+                "ap_tracking_data": {
+                    "group": 26,
+                    "offset": 17
+                },
+                "pc": 281,
                 "value": "cast([ap + (-1)], felt)"
             },
             {
                 "ap_tracking_data": {
-                    "group": 25,
-                    "offset": 31
+                    "group": 27,
+                    "offset": 0
                 },
-                "pc": 271,
+                "pc": 283,
+                "value": "cast([fp + (-4)], felt*)"
+            },
+            {
+                "ap_tracking_data": {
+                    "group": 27,
+                    "offset": 0
+                },
+                "pc": 283,
+                "value": "cast([fp + (-3)], felt)"
+            },
+            {
+                "ap_tracking_data": {
+                    "group": 27,
+                    "offset": 3
+                },
+                "pc": 285,
+                "value": "cast([fp], felt)"
+            },
+            {
+                "ap_tracking_data": {
+                    "group": 27,
+                    "offset": 3
+                },
+                "pc": 285,
+                "value": "cast([fp + 1], felt)"
+            },
+            {
+                "ap_tracking_data": {
+                    "group": 27,
+                    "offset": 3
+                },
+                "pc": 285,
+                "value": "cast([fp + 2], felt)"
+            },
+            {
+                "ap_tracking_data": {
+                    "group": 27,
+                    "offset": 6
+                },
+                "pc": 287,
                 "value": "cast([ap + (-1)], __main__.Token*)"
             },
             {
                 "ap_tracking_data": {
-                    "group": 25,
+                    "group": 27,
+                    "offset": 11
+                },
+                "pc": 291,
+                "value": "cast([ap + (-1)], felt*)"
+            },
+            {
+                "ap_tracking_data": {
+                    "group": 27,
+                    "offset": 26
+                },
+                "pc": 296,
+                "value": "cast([ap + (-1)], felt)"
+            },
+            {
+                "ap_tracking_data": {
+                    "group": 27,
+                    "offset": 31
+                },
+                "pc": 300,
+                "value": "cast([ap + (-1)], __main__.Token*)"
+            },
+            {
+                "ap_tracking_data": {
+                    "group": 27,
                     "offset": 36
                 },
-                "pc": 275,
+                "pc": 304,
                 "value": "cast([ap + (-1)], felt*)"
             },
             {
                 "ap_tracking_data": {
-                    "group": 25,
+                    "group": 27,
                     "offset": 40
                 },
-                "pc": 278,
+                "pc": 307,
                 "value": "cast([ap + (-1)], felt*)"
             },
             {
                 "ap_tracking_data": {
-                    "group": 25,
+                    "group": 27,
                     "offset": 44
                 },
-                "pc": 281,
+                "pc": 310,
                 "value": "cast([ap + (-1)], felt*)"
             }
         ]

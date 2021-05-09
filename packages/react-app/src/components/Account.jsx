@@ -8,6 +8,8 @@ import Web3 from "web3";
 import { useThemeSwitcher } from "react-css-theme-switcher";
 import { WalletOutlined } from "@ant-design/icons";
 
+import torusLogo from "../assets/torus_round.png";
+
 /*
   ~ What it does? ~
 
@@ -106,10 +108,21 @@ export default function Account({
           shape="round"
           size="large"
           /*type={minimized ? "default" : "primary"}     too many people just defaulting to MM and having a bad time*/
-          onClick={TORUS ? onClickLogin : loadWeb3Modal}
+          onClick={loadWeb3Modal}
         >
           <WalletOutlined />
           Connect Wallet
+        </Button>,
+      );
+      modalButtons.push(
+        <Button
+          key="torusbutton"
+          style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
+          shape="round"
+          size="large"
+          onClick={onClickLogin}
+        >
+          <img src={torusLogo} className="torus-logo" />
         </Button>,
       );
     }

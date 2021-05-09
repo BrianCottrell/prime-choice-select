@@ -19,7 +19,7 @@ func get_at(tokens : Token*, index : felt) -> (token : Token*):
     return (token=tokens+index)
 end
 
-func find_best_token{range_check_ptr}(tokens : Token*, n : felt) -> (token : Token*):
+func find_best_token{range_check_ptr}(tokens : Token*, n : felt, best_token : Token*) -> (token : Token*):
     if n == 0:
         # When 0 is reached, return 0.
         return (token=best_token)

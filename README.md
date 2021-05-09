@@ -6,6 +6,15 @@
 
 A blockchain application that helps automatically select the best blockchain to facilitate a given transaction based on the requirements of the payment.
 
+### Sponsors
+
+- Chainlink
+- Tellor
+- Skale
+- Torus
+- Starkware (Cairo)
+- ZkSync
+
 ## References:
 
 Zksync:
@@ -13,8 +22,7 @@ Zksync:
 - https://github.com/matter-labs/zksync/tree/master/sdk/zksync.js
 
 Celer:
-
-- https://github.com/celer-network/layer2-finance-contracts/tree/main/contracts/strategies
+x
 
 <!--
 https://github.com/austintgriffith/scaffold-eth#%EF%B8%8F-quick-start
@@ -49,7 +57,4 @@ If successful Primechoice Select should now be ready and available on `localhost
 2. Create as one time or subscription Payment (choose subscription), ask for example tokens.
 3. Generate a url - url can be shared with the buyer or on your website.
 4.
-
-
-
 -->
