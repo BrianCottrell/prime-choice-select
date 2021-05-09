@@ -161,7 +161,7 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
           </div>
         );
       case 2:
-        const payUrl = `${window.location.href}/send?payment=${deployedAddress}`;
+        const payUrl = `${window.location.origin}/send?payment=${deployedAddress}`;
         return (
           <div>
             <h1>Contract Created!</h1>
