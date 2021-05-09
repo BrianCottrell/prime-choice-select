@@ -17,13 +17,30 @@ contract PaymentContract is Ownable, UsingTellor {
   address public payer;
   string public selectedToken;
 
-  uint256 public btcPrice;
-  uint256 btcRequetId = 2;
+  /**
+   * Tellor
+   * Network: Ropsten
+   *
+   * ID: 1  Data: ETH/USD
+   * ID: 3  Data: BNB/USD
+   * ID: 27 Data: LINK/USD
+   * ID: 39 Data: DAI/USD
+   */
+  uint256 public ethPrice;
+  uint256 ethRequestId = 1;
+  uint256 public bnbPrice;
+  uint256 bnbRequestId = 3;
+  uint256 public linkPrice;
+  uint256 linkRequestId = 27;
+  uint256 public daiPrice;
+  uint256 daiRequestId = 39;
 
   event PaymentActivated(address sender, string selectedToken);
 
   /**
+   * Chainlink
    * Network: Kovan
+   *
    * Aggregator: ETH/USD
    * Address: 0x9326BFA02ADD2366b30bacB125260Af641031331
    * Aggregator: LINK/ETH
@@ -120,11 +137,32 @@ contract PaymentContract is Ownable, UsingTellor {
     return amountConversion;
   }
 
-  function setBtcPrice() public {
+  function ropstenGetEthPrice() public {
     bool _didGet;
     uint _timestamp;
     uint _value;
+    (_didGet, ethPrice, _timestamp) = getCurrentValue(ethRequestId);
+  }
 
-    (_didGet, btcPrice, _timestamp) = getCurrentValue(btcRequetId);
+  function ropstenGetLinkPrice() public {
+    bool _didGet;
+    uint _timestamp;
+    uint _value;
+    (_didGet, linkPrice, _timestamp) = getCurrentValue(linkRequestId);
+  }
+
+  function ropstenGetDaiPrice() public {
+    bool _didGet;
+    uint _timestamp;
+    uint _value;
+    (_didGet, daiPrice, _timestamp) = getCurrentValue(daiRequestId);
+  }
+
+  function ropstenGetBnbPrice() public {
+    bool _didGet;
+    uint _timestamp;
+    uint _value;
+    (_didGet, bnbPrice, _timestamp) = getCurrentValue(bnbRequestId);
   }
 }
+
