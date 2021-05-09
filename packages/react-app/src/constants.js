@@ -373,6 +373,13 @@ export const NETWORKS = {
     faucet: "https://faucet.matic.network/",
     blockExplorer: "https://mumbai-explorer.matic.today/",
   },
+  skale: {
+    name: "skale",
+    color: "#f3813e",
+    chainId: 0x18dda20db8aa6,
+    rpcUrl: "https://eth-global-10.skalenodes.com:10072",
+    blockExplorer: "",
+  },
 };
 export const TARGET_NETWORK_NAME = "ropsten";
 
