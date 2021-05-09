@@ -60,7 +60,7 @@ If successful Primechoice Select should now be ready and available on `localhost
 
 <p>Home</p>
 <img src="./img/home.png" width=600/>
-<p>Contract</p>
+<p>Payment Contract</p>
 <img src="./img/contract.png" width=600/>
 <p>Payer screen</p>
 <img src="./img/payer.png" width=600/>
@@ -70,3 +70,5 @@ If successful Primechoice Select should now be ready and available on `localhost
 <img src="./img/torus.png" width=600/>
 <p>SKALE: Deploying to a private network</p>
 <img src="./img/skale.png" width=600/>
+<p>SKALE: Selecting Skale network for Primechoice Select</p>
+<img src="./img/skale_deploy.png" width=600/>
