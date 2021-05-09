@@ -25,7 +25,7 @@ const timeMarks = {
 
 export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
   const [tokens, setTokens] = useState([]);
-  const [currentStep, setCurrentStep] = useState(2);
+  const [currentStep, setCurrentStep] = useState(1);
   const [options, setOptions] = useState({});
   const [showModal, setShowModal] = React.useState(false);
   const [paymentData, setPaymentData] = useState({});
@@ -120,9 +120,9 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
     }
   };
 
-  useEffect(() => {
-    getTokens();
-  }, []);
+  // useEffect(() => {
+  //   getTokens();
+  // }, []);
   return (
     <div>
       <Layout>
@@ -145,7 +145,7 @@ export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
             {error && <p className="error-text">{error}</p>}
             {currentStep != 0 && <Button onClick={() => adjustStep(-1)}>Back</Button>}
             {currentStep != 2 && <Button onClick={() => adjustStep(1)}>{currentStep == 2 ? "Done" : "Next"}</Button>}
-            {currentStep === 2 && <Button onClick={() => setShowModal(true)}>Pay with Connext</Button>}
+            {/* {currentStep === 2 && <Button onClick={() => setShowModal(true)}>Pay with Connext</Button>} */}
           </Footer>
         </Layout>
       </Layout>

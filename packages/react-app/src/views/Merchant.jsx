@@ -15,11 +15,7 @@ const { Option } = Select;
 const { Step } = Steps;
 const { Header, Footer, Sider, Content } = Layout;
 
-const typeMarks = {
-  0: "One time purchase",
-  1: "Subscription (monthly)",
-  2: "Subscription (daily)",
-};
+const typeMarks = ["One time purchase", "Subscription (monthly)", "Subscription (daily)"];
 
 const timeMarks = {
   2: "Standard",
@@ -30,7 +26,13 @@ const timeMarks = {
 export const Merchant = ({ name, signer, provider, address, blockExplorer }) => {
   const [tokens, setTokens] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
-  const [params, setParams] = useState({ speed: 2, amount: undefined, coins: [], purpose: "", type: 0 });
+  const [params, setParams] = useState({
+    speed: 2,
+    amount: undefined,
+    coins: [],
+    purpose: "",
+    type: "Subscription (daily)",
+  });
   const [deployedAddress, setDeployedAddress] = useState();
   const contracts = useContractLoader(provider);
 
@@ -59,9 +61,16 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
     // Create an instance of a Contract Factory
     let factory = new ethers.ContractFactory(abi, bytecode, signer);
 
-    const amount = parseInt(params.amount);
+    const amount = ethers.utils.parseEther(params.amount);
 
-    let contract = await factory.deploy(amount, params.speed, params.coins.join(","), params.purpose, TELLOR_ADDRESS);
+    let contract = await factory.deploy(
+      amount,
+      params.speed,
+      params.coins.join(","),
+      params.purpose,
+      params.type,
+      TELLOR_ADDRESS,
+    );
 
     console.log("address", contract.address);
     setDeployedAddress(contract.address);
@@ -89,21 +98,17 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
             <Input
               suffix={"Ether"}
               size="large"
-              placeholder="XXX Eth"
+              placeholder="0.05"
               value={params.amount}
               onChange={e => setParams({ ...params, amount: e.target.value })}
             />
             <br />
             <p>Payment details:</p>
-            <Select
-              defaultValue={typeMarks[params.type]}
-              style={{ width: 240 }}
-              onChange={type => setParams({ ...params, type })}
-            >
-              {Object.keys(typeMarks).map((x, i) => {
+            <Select defaultValue={params.type} style={{ width: 240 }} onChange={type => setParams({ ...params, type })}>
+              {typeMarks.map((x, i) => {
                 return (
                   <Option key={x} value={x}>
-                    {typeMarks[x]}
+                    {x}
                   </Option>
                 );
               })}
@@ -156,7 +161,7 @@ export const Merchant = ({ name, signer, provider, address, blockExplorer }) => 
           </div>
         );
       case 2:
-        const payUrl = `${window.location.hostname}/send?payment=${deployedAddress}`;
+        const payUrl = `${window.location.href}/send?payment=${deployedAddress}`;
         return (
           <div>
             <h1>Contract Created!</h1>

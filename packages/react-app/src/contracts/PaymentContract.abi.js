@@ -22,6 +22,11 @@ module.exports = [
         "type": "string"
       },
       {
+        "internalType": "string",
+        "name": "_paymentType",
+        "type": "string"
+      },
+      {
         "internalType": "address payable",
         "name": "_tellorAddress",
         "type": "address"
@@ -307,6 +312,19 @@ module.exports = [
   },
   {
     "inputs": [],
+    "name": "paymentType",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "purpose",
     "outputs": [
       {
@@ -391,6 +409,19 @@ module.exports = [
       }
     ],
     "name": "setMaxResolutionTime",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_paymentType",
+        "type": "string"
+      }
+    ],
+    "name": "setPaymentType",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

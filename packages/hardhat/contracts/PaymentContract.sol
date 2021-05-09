@@ -11,6 +11,7 @@ import "../deps/UsingTellor.sol";
 contract PaymentContract is Ownable, UsingTellor {
   int public amount;
   int public maxResolutionTime;
+  string public paymentType;
   string public supportedTokens;
   string public purpose;
 
@@ -45,13 +46,15 @@ contract PaymentContract is Ownable, UsingTellor {
   AggregatorV3Interface internal linkPriceFeed;
   AggregatorV3Interface internal uniPriceFeed;
 
-  constructor(int _amount, int _maxResolutionTime, string memory _supportedTokens, string memory _purpose,
+  constructor(int _amount, int _maxResolutionTime, string memory _supportedTokens, 
+  string memory _purpose, string memory _paymentType,
  address payable _tellorAddress
   ) UsingTellor(_tellorAddress) public {
     amount = _amount;
     maxResolutionTime = _maxResolutionTime;
     supportedTokens = _supportedTokens;
     purpose = _purpose;
+    paymentType = _paymentType;
     usdPriceFeed = AggregatorV3Interface(0x9326BFA02ADD2366b30bacB125260Af641031331);
     linkPriceFeed = AggregatorV3Interface(0x3Af8C569ab77af5230596Acf0E8c2F9351d24C38);
     uniPriceFeed = AggregatorV3Interface(0x17756515f112429471F86f98D5052aCB6C47f6ee);
@@ -71,6 +74,10 @@ contract PaymentContract is Ownable, UsingTellor {
 
   function setPurpose(string memory _purpose) public onlyOwner {
     purpose = _purpose;
+  }
+
+  function setPaymentType(string memory _paymentType) public onlyOwner {
+    paymentType = _paymentType;
   }
 
   function activate(string memory _selectedToken) public {

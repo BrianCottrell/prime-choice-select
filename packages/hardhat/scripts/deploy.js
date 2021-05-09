@@ -73,7 +73,7 @@ const NETWORK_SPECIFIC_TELLOR_ADDRESS = "0x20374E579832859f180536A69093A126Db1c8
 
 const deploy = async (
   contractName,
-  _args = [0, 0, "", "", NETWORK_SPECIFIC_TELLOR_ADDRESS],
+  _args = [0, 0, "", "", "", NETWORK_SPECIFIC_TELLOR_ADDRESS],
   overrides = {},
   libraries = {}
 ) => {
