@@ -25,7 +25,7 @@ const timeMarks = {
 
 export const Payer = ({ name, signer, provider, address, blockExplorer }) => {
   const [tokens, setTokens] = useState([]);
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
   const [options, setOptions] = useState({});
   const [showModal, setShowModal] = React.useState(false);
   const [paymentData, setPaymentData] = useState({});
